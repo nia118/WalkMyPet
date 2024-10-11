@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payments', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->foreignId('customer_id')->constrained()->cascadeOnDelete();
-            $table->integer('amount');
+            $table->foreignId('booking_id')->constrained()->cascadeOnDelete();
             $table->string('payment_method');
             $table->boolean('is_paid')->default(false);
             $table->timestamps();

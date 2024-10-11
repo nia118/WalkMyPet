@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('services', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->string('type');
             $table->time('duration');
             $table->decimal('price');
+            $table->boolean('is_additional')->default(false);
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->foreignId('customer_id')->constrained()->cascadeOnDelete();
             $table->integer('rating');
             $table->longText('comment');

@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('staff_schedules', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->foreignId('staff_id')->constrained()->cascadeOnDelete();
             $table->foreignId('schedule_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('booking_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
         });
     }
