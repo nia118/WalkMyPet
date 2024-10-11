@@ -13,7 +13,7 @@ class StaffSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('staffs')->insert([
+        DB::table('staff')->insert([
             [
                 'name' => 'Agus Santoso',
                 'address' => 'Jl. Raya Darmo No. 655, Surabaya',
