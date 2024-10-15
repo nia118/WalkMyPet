@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,9 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('main');
 });
+
+Route::get('/service', function () {
+    return view('service');
+});
+
+Route::get('/home/book/{id_customer}', [BookingController::class, 'showBookingForm'])->name('book.showBookingForm');
