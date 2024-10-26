@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
   </head>
   <body>
-    <div class="wrap">
+    <!-- <div class="wrap">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 d-flex align-items-center">
@@ -44,10 +44,13 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	    	<a class="navbar-brand" href="index.html"><span class="flaticon-pawprint-1 mr-2"></span>WalkMyPet</a>
+		<a class="navbar-brand" href="index.html">
+    		<img src="{{ asset('asset/images/logo_walkmypet.png') }}" alt="WalkMyPet Logo" style="height: 80px;"> <!-- Adjust height as needed -->
+		</a>
+
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="fa fa-bars"></span> Menu
 	      </button>
@@ -55,11 +58,11 @@
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
 	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	        	<li class="nav-item"><a href="vet.html" class="nav-link">Veterinarian</a></li>
+	        	<!-- <li class="nav-item"><a href="vet.html" class="nav-link">Veterinarian</a></li> -->
 	        	<li class="nav-item"><a href="/service" class="nav-link">Services</a></li>
-	          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+	          <!-- <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li> -->
 	          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 	        </ul>
 	      </div>
@@ -695,75 +698,70 @@
     	</div>
     </section>
 
-    <footer class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-						<h2 class="footer-heading">Petsitting</h2>
-						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-						<ul class="ftco-footer-social p-0">
-              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
-              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
-              <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
-            </ul>
-					</div>
-					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-						<h2 class="footer-heading">Latest News</h2>
-						<div class="block-21 mb-4 d-flex">
-              <a class="img mr-4 rounded" style="background-image: url('{{ asset('asset/images/image_1.jpg') }}');"></a>
-              <div class="text">
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="icon-calendar"></span> April 7, 2020</a></div>
-                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                </div>
-              </div>
+	<footer class="footer" style="padding-top: 40px; padding-bottom: 25px;">
+    <div class="container">
+        <div class="row">
+            <!-- WalkMyPet Section -->
+            <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+                <h2 class="footer-heading">WalkMyPet</h2>
+                <p>We connect pet owners with trusted walkers, trainers, groomers, and sitters to ensure the health and happiness of your beloved pets.</p>
+                <ul class="ftco-footer-social p-0" style="margin-top: 20px;">
+                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+                </ul>
             </div>
-            <div class="block-21 mb-4 d-flex">
-              <a class="img mr-4 rounded" style="background-image: url('{{ asset('asset/images/image_2.jpg') }}');"></a>
-              <div class="text">
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="icon-calendar"></span> April 7, 2020</a></div>
-                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                </div>
-              </div>
-            </div>
-					</div>
-					<div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
-						<h2 class="footer-heading">Quick Links</h2>
-						<ul class="list-unstyled">
-              <li><a href="#" class="py-2 d-block">Home</a></li>
-              <li><a href="#" class="py-2 d-block">About</a></li>
-              <li><a href="#" class="py-2 d-block">Services</a></li>
-              <li><a href="#" class="py-2 d-block">Works</a></li>
-              <li><a href="#" class="py-2 d-block">Blog</a></li>
-              <li><a href="#" class="py-2 d-block">Contact</a></li>
-            </ul>
-					</div>
-					<div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-						<h2 class="footer-heading">Have a Questions?</h2>
-						<div class="block-23 mb-3">
-              <ul>
-                <li><span class="icon fa fa-map"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
-              </ul>
-            </div>
-					</div>
-				</div>
-				<div class="row mt-5">
-          <div class="col-md-12 text-center">
 
-            <p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
+            <!-- Latest News Section -->
+            <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+                <h2 class="footer-heading">Latest News</h2>
+                <div class="block-21 mb-2 d-flex">
+                    <a class="img mr-3 rounded" style="background-image: url('{{ asset('asset/images/image_1.jpg') }}'); width: 60px; height: 60px;"></a>
+                    <div class="text">
+                        <h3 class="heading"><a href="#">Top Tips for Walking Your Dog Like a Pro</a></h3>
+                        <div class="meta">
+                            <div><a href="#"><span class="icon-calendar"></span> October 26, 2024</a></div>
+                            <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+                <h2 class="footer-heading">Quick Links</h2>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="py-1 d-block">Home</a></li>
+                    <li><a href="#" class="py-1 d-block">About</a></li>
+                    <li><a href="#" class="py-1 d-block">Services</a></li>
+                    <li><a href="#" class="py-1 d-block">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Have a Questions Section -->
+            <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+                <h2 class="footer-heading">Have a Questions?</h2>
+                <div class="block-23 mb-2">
+                    <ul>
+                        <li><span class="icon fa fa-map"></span><span class="text">Surabaya, Indonesia</span></li>
+						<div style="height: 12px;"></div>
+                        <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+62 1234 567</span></a></li>
+                        <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">walkmypet@gmail.com</span></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-			</div>
-		</footer>
+
+        <!-- Footer Bottom Row -->
+        <div class="row mt-3">
+            <div class="col-md-12 text-center">
+                <p class="copyright" style="margin-top: 20px;">
+                    &copy; <script>document.write(new Date().getFullYear());</script> WalkMyPet | All rights reserved
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
 
     
   
