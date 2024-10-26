@@ -21,7 +21,33 @@
 
     <link rel="stylesheet" href="{{ asset('asset/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+
+    <style>
+        .rating {
+            display: flex;
+            direction: row;
+        }
+
+        .rating span {
+            cursor: pointer;
+            color: #ccc; /* Warna bintang yang belum dipilih */
+            font-size: 2rem; /* Ukuran bintang */
+            transition: color 0.2s; /* Transisi warna */
+        }
+
+        .rating span.checked {
+            color: #ffca28; /* Warna bintang saat dipilih */
+        }
+
+        .rating span.hovered {
+            color: #ffca28; /* Warna bintang saat di-hover */
+        }
+    </style>
+
   </head>
+
+
+
   <body>
     <div class="wrap">
 			<div class="container">
@@ -627,15 +653,17 @@
     </section>
 
     <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img" style="background-image: url('{{ asset('asset/images/bg_3.jpg') }}');">
-			<div class="overlay"></div>
+	    <div class="overlay"></div>
     	<div class="container">
     		<div class="row d-md-flex justify-content-end">
     			<div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate">
-    				<h2 class="mb-4">Contact Us</h2>
+                    <div class="mb-4">
+    				<h2>Contact Us</h2>
 					<p class="text-white">Have questions, need assistance, or want to share feedback? Contact us at WalkMyPet to learn more about our services, book your next pet care session, or let us know how we can improve!</p>
+                    </div>
     				<form action="#" class="appointment">
     					<div class="row">
-    						<div class="col-md-12">
+    						<!-- <div class="col-md-12">
 									<div class="form-group">
 			    					<div class="form-field">
 	          					<div class="select-wrap">
@@ -651,7 +679,23 @@
 	                    </div>
 			              </div>
 			    				</div>
+								</div> -->
+
+
+
+                        <!-- Rating section -->
+						<div class="col-md-12 mt-3">
+							<div class="form-group">
+								<label for="rating" class="text-white font-weight-bold">Rate our services</label>
+								<div id="rating" class="rating">
+                                <span class="fa fa-star" data-value="1"></span>
+                                <span class="fa fa-star" data-value="2"></span>
+                                <span class="fa fa-star" data-value="3"></span>
+                                <span class="fa fa-star" data-value="4"></span>
+                                <span class="fa fa-star" data-value="5"></span>
 								</div>
+							</div>
+						</div>
 								<!-- <div class="col-md-12">
 									<div class="form-group">
 			              <input type="text" class="form-control" placeholder="Your Name">
@@ -765,6 +809,41 @@
 			</div>
 		</footer>
 
+
+    <script>
+        document.querySelectorAll('.rating span').forEach(star => {
+            star.addEventListener('click', function() {
+                const ratingValue = this.getAttribute('data-value');
+                // Set checked class to selected stars
+                document.querySelectorAll('.rating span').forEach((star, index) => {
+                    star.classList.remove('checked');
+                    if (index < ratingValue) {
+                        star.classList.add('checked');
+                    }
+                });
+            });
+
+            star.addEventListener('mouseover', function() {
+                const ratingValue = this.getAttribute('data-value');
+                // Highlight stars on hover
+                document.querySelectorAll('.rating span').forEach((star, index) => {
+                    if (index < ratingValue) {
+                        star.classList.add('hovered');
+                    } else {
+                        star.classList.remove('hovered');
+                    }
+                });
+            });
+
+            star.addEventListener('mouseout', function() {
+                // Remove highlight when not hovering
+                document.querySelectorAll('.rating span').forEach(star => {
+                    star.classList.remove('hovered');
+                });
+            });
+        });
+    </script>
+
     
   
 
@@ -790,6 +869,9 @@
   <script src="{{ asset('asset/js/main.js') }}"></script>
 
 
+  
     
   </body>
 </html>
+
+
