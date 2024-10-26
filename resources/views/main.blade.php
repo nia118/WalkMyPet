@@ -88,7 +88,7 @@
               </div>
               <div class="media-body">
                 <h3 class="heading">Dog Walking</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
+                <p>Provides pets with essential exercise and socialization, which is crucial for their physical and mental well-being.</p>
                 <a href="/home/book/2" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
               </div>
             </div>      
@@ -100,7 +100,7 @@
               </div>
               <div class="media-body">
                 <h3 class="heading">Pet Training</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
+                <p>Helps improve pets behavior and obedience, making them easier to manage.</p>
                 <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
               </div>
             </div>    
@@ -112,7 +112,7 @@
               </div>
               <div class="media-body">
                 <h3 class="heading">Pet Grooming</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right.</p>
+                <p> Keeps pets clean and healthy, enhancing their appearance and comfort while also helping to identify potential health issues early.</p>
                 <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
               </div>
             </div>      
@@ -134,33 +134,34 @@
     				</div>
     				<div class="row">
 	    				<div class="col-md-6 services-2 w-100 d-flex">
-	    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-stethoscope"></span></div>
+	    					<!-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-stethoscope"></span></div> -->
+							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-veterinarian"></span></div>
 	    					<div class="text pl-3">
-	    						<h4>Care Advices</h4>
-	    						<p>Far far away, behind the word mountains, far from the countries.</p>
+	    						<h4>Convenience</h4>
+	    						<p> A streamlined platform for finding trusted pet walkers, pet trainers,  and pet groomers nearby.</p>
 	    					</div>
 	    				</div>
 	    				<div class="col-md-6 services-2 w-100 d-flex">
 	    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-customer-service"></span></div>
 	    					<div class="text pl-3">
-	    						<h4>Customer Supports</h4>
-	    						<p>Far far away, behind the word mountains, far from the countries.</p>
+	    						<h4>Safety and Trust</h4>
+	    						<p>reviews and ratings build customer confidence in service quality.</p>
 	    					</div>
 	    				</div>
 	    				<div class="col-md-6 services-2 w-100 d-flex">
 	    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-emergency-call"></span></div>
 	    					<div class="text pl-3">
-	    						<h4>Emergency Services</h4>
-	    						<p>Far far away, behind the word mountains, far from the countries.</p>
+	    						<h4>Variety and Flexibility</h4>
+	    						<p> A variety of pet service: walking, grooming, training, and optional pet feeding are available on one platform and can be combined into one package.</p>
 	    					</div>
 	    				</div>
-	    				<div class="col-md-6 services-2 w-100 d-flex">
+	    				<!-- <div class="col-md-6 services-2 w-100 d-flex">
 	    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-veterinarian"></span></div>
 	    					<div class="text pl-3">
 	    						<h4>Veterinary Help</h4>
 	    						<p>Far far away, behind the word mountains, far from the countries.</p>
 	    					</div>
-	    				</div>
+	    				</div> -->
 	    			</div>
 	        </div>
         </div>
@@ -630,7 +631,8 @@
     	<div class="container">
     		<div class="row d-md-flex justify-content-end">
     			<div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate">
-    				<h2 class="mb-4">Free Consultation</h2>
+    				<h2 class="mb-4">Contact Us</h2>
+					<p class="text-white">Have questions, need assistance, or want to share feedback? Contact us at WalkMyPet to learn more about our services, book your next pet care session, or let us know how we can improve!</p>
     				<form action="#" class="appointment">
     					<div class="row">
     						<div class="col-md-12">
