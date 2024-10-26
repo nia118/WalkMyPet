@@ -14,7 +14,7 @@ class StaffController extends Controller
         $schedule = Schedule::find($scheduleId);
 
         if (!$schedule) {
-            return []; // Return empty if schedule is not found
+            return []; 
         }
 
         // Check if the staff is linked to the specific schedule and is available
@@ -28,7 +28,7 @@ class StaffController extends Controller
         // Map the schedules to a readable format
         return $availableSchedules->map(function ($staffSchedule) {
             return [
-                'start_time' => $staffSchedule->start_time, // Ambil start_time dari Schedule
+                'start_time' => $staffSchedule->start_time,
                 'end_time' => $staffSchedule->end_time,     // Ambil end_time dari Schedule
             ];
         })->toArray(); // Convert to array

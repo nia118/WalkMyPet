@@ -10,13 +10,11 @@ class StaffService extends Model
 {
     use HasFactory;
 
-    // Belongs to one staff
     public function staff(): BelongsTo
     {
         return $this->belongsTo(Staff::class);
     }
-
-    // Belongs to one service
+    
     public function service(): BelongsTo
     {
         return $this->belongsTo(Service::class);
