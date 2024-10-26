@@ -18,16 +18,4 @@ class Service extends Model
     public function staff_services():HasMany {
         return $this->hasMany(StaffService::class);
     }
-
-    public function staffs(): HasManyThrough{
-        return $this->hasManyThrough(
-        Staff::class,
-        StaffService::class,
-        'service_id',
-        'id',
-        'id',
-        'staff_id'
-        )->where('staffs.is_active', 1);
-
-    }
 }

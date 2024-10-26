@@ -21,10 +21,9 @@ class Schedule extends Model
     public function staffs(): BelongsToMany
     {
         return $this->belongsToMany(Staff::class, 'staff_schedules', 'schedule_id', 'staff_id')
-                    ->where('staff.is_active', 1); // Only active staff members
+                    ->where('staff.is_active', 1); 
     }
 
-    // Many-to-Many relationship with Booking via staff_schedules (through booking_id)
     public function bookings(): BelongsToMany
     {
         return $this->belongsToMany(Booking::class, 'staff_schedule', 'schedule_id', 'booking_id');

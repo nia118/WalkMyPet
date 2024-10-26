@@ -6,49 +6,52 @@ use App\Models\Pet;
 use App\Models\Schedule;
 use App\Models\Service;
 use App\Models\Staff;
-use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
-    // Display booking form
     public function showBookingForm(Service $service)
     {
-        // Assume a customer ID (e.g., logged-in customer)
-        $id_customer = 2; // This should ideally come from authentication
-    
-        // Fetch all pets belonging to this customer
+        $id_customer = 2; 
+        
         $pets = Pet::where('customer_id', $id_customer)->get();
-    
-        // Fetch schedules that have active staff available for the selected service
+        
+        // Mendapatkan tanggal unik dari schedules yang memiliki staf aktif yang menawarkan service yang dipilih
         $schedules = Schedule::whereHas('staffs', function ($query) use ($service) {
-            $query->where('is_active', 1) // Filter for active staff
+            $query->where('is_active', 1)
                   ->whereHas('services', function ($query) use ($service) {
                       $query->where('service_id', $service->id);
                   });
-        })->get();
+        })
+        ->selectRaw('DISTINCT DATE(date) as date') // Ambil hanya tanggal unik
+        ->orderBy('date') // Urutkan tanggal
+        ->get();
     
-        // Pass data to the booking view
         return view('book', [
             'customer_id' => $id_customer,
             'pets' => $pets,
             'service' => $service,
-            'schedules' => $schedules // Pass the filtered schedules to the view
+            'schedules' => $schedules
         ]);
     }    
 
     public function availableStaff(Request $request)
     {
-        Log::info('Schedule ID: ' . $request->schedule_id);
-        Log::info('Service ID: ' . $request->service_id);
-
         try {
-            // Mencari staf yang masih tersedia (booking_id null) pada schedule dan service tertentu
+            // Mencari staf yang tersedia pada tanggal dan layanan tertentu
             $availableStaff = Staff::whereHas('schedules', function($query) use ($request) {
-                $query->where('schedule_id', $request->schedule_id)
-                    ->whereNull('booking_id'); // Staf dengan booking_id null masih tersedia
-            })->get();
+                    $query->whereDate('date', $request->schedule_date)
+                        ->whereNull('booking_id'); // Staf dengan booking_id null masih tersedia
+                })
+                ->whereHas('services', function($query) use ($request) {
+                    $query->where('service_id', $request->service_id); // Hanya staff yang memiliki service ini
+                })
+                ->with(['schedules' => function($query) use ($request) {
+                    $query->whereDate('date', $request->schedule_date)
+                        ->select('staff_id', 'start_time', 'end_time', 'date');
+                }])
+                ->get(['id', 'name', 'experience']); // Ambil field name dan experience dari Staff
 
             return response()->json($availableStaff);
         } catch (\Exception $e) {
