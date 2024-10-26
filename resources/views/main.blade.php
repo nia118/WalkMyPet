@@ -642,7 +642,7 @@
 	                      <div class="icon"><span class="fa fa-chevron-down"></span></div>
 	                      <select name="" id="" class="form-control">
 	                      	<option value="">Select services</option>
-	                        <option value="">Cat Sitting</option>
+	                        <option value="">Pet Walking</option>
 	                        <option value="">Dog Walk</option>
 	                        <option value="">Pet Spa</option>
 	                        <option value="">Pet Grooming</option>
@@ -652,32 +652,32 @@
 			              </div>
 			    				</div>
 								</div>
-								<div class="col-md-6">
+								<!-- <div class="col-md-12">
 									<div class="form-group">
 			              <input type="text" class="form-control" placeholder="Your Name">
 			            </div>
-								</div>
-								<div class="col-md-6">
+								</div> -->
+								<!-- <div class="col-md-6">
 									<div class="form-group">
 			              <input type="text" class="form-control" placeholder="Vehicle number">
 			            </div>
-								</div>
-								<div class="col-md-6">
+								</div> -->
+								<!-- <div class="col-md-6">
 									<div class="form-group">
 			    					<div class="input-wrap">
 			            		<div class="icon"><span class="fa fa-calendar"></span></div>
 			            		<input type="text" class="form-control appointment_date" placeholder="Date">
 		            		</div>
 			    				</div>
-								</div>
-								<div class="col-md-6">
+								</div> -->
+								<!-- <div class="col-md-6">
 									<div class="form-group">
 			    					<div class="input-wrap">
 			            		<div class="icon"><span class="fa fa-clock-o"></span></div>
 			            		<input type="text" class="form-control appointment_time" placeholder="Time">
 		            		</div>
 			    				</div>
-								</div>
+								</div> -->
 								<div class="col-md-12">
 									<div class="form-group">
 			              <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
