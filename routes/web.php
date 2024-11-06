@@ -10,11 +10,20 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return view('main');
-});
+})->name('home');
 
 Route::get('/service', function () {
     return view('service');
-});
+})->name('service');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

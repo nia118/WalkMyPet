@@ -46,28 +46,23 @@
 			</div>
 		</div> -->
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-		<a class="navbar-brand" href="index.html">
-    		<img src="{{ asset('asset/images/logo_walkmypet.png') }}" alt="WalkMyPet Logo" style="height: 80px;"> <!-- Adjust height as needed -->
-		</a>
-
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="fa fa-bars"></span> Menu
-	      </button>
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	        	<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	        	<!-- <li class="nav-item"><a href="vet.html" class="nav-link">Veterinarian</a></li> -->
-	        	<li class="nav-item"><a href="/service" class="nav-link">Services</a></li>
-	          <!-- <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li> -->
-	          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-	          <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
+			<div class="container">
+				<a class="navbar-brand" href="index.html">
+					<img src="{{ asset('asset/images/logo_walkmypet.png') }}" alt="WalkMyPet Logo" style="height: 80px;">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="fa fa-bars"></span> Menu
+				</button>
+				<div class="collapse navbar-collapse" id="ftco-nav">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
+						<li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
+						<li class="nav-item"><a href="{{ route('service') }}" class="nav-link">Service</a></li>
+						<li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
     <!-- END nav -->
     <div class="hero-wrap js-fullheight" style="background-image: url('{{ asset('asset/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
@@ -125,53 +120,6 @@
         </div>
     	</div>
     </section> -->
-
-    <section class="ftco-section ftco-no-pt ftco-no-pb">
-    	<div class="container">
-    		<div class="row d-flex no-gutters">
-    			<div class="col-md-5 d-flex">
-    				<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url('{{ asset('asset/images/about-1.jpg') }}');">
-    				</div>
-    			</div>
-    			<div class="col-md-7 pl-md-5 py-md-5">
-    				<div class="heading-section pt-md-5">
-	            <h2 class="mb-4">Why Choose Us?</h2>
-    				</div>
-    				<div class="row">
-	    				<div class="col-md-6 services-2 w-100 d-flex">
-	    					<!-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-stethoscope"></span></div> -->
-							<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-veterinarian"></span></div>
-	    					<div class="text pl-3">
-	    						<h4>Convenience</h4>
-	    						<p> A streamlined platform for finding trusted pet walkers, pet trainers,  and pet groomers nearby.</p>
-	    					</div>
-	    				</div>
-	    				<div class="col-md-6 services-2 w-100 d-flex">
-	    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-customer-service"></span></div>
-	    					<div class="text pl-3">
-	    						<h4>Safety and Trust</h4>
-	    						<p>reviews and ratings build customer confidence in service quality.</p>
-	    					</div>
-	    				</div>
-	    				<div class="col-md-6 services-2 w-100 d-flex">
-	    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-emergency-call"></span></div>
-	    					<div class="text pl-3">
-	    						<h4>Variety and Flexibility</h4>
-	    						<p> A variety of pet service: walking, grooming, training, and optional pet feeding are available on one platform and can be combined into one package.</p>
-	    					</div>
-	    				</div>
-	    				<!-- <div class="col-md-6 services-2 w-100 d-flex">
-	    					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-veterinarian"></span></div>
-	    					<div class="text pl-3">
-	    						<h4>Veterinary Help</h4>
-	    						<p>Far far away, behind the word mountains, far from the countries.</p>
-	    					</div>
-	    				</div> -->
-	    			</div>
-	        </div>
-        </div>
-    	</div>
-    </section>
 
     <section class="ftco-counter" id="section-counter">
     	<div class="container">
@@ -420,7 +368,7 @@
       </div>
     </section>
 
-    <section class="ftco-section bg-light">
+    <!-- <section class="ftco-section bg-light">
     	<div class="container">
     		<div class="row justify-content-center pb-5 mb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
@@ -484,9 +432,9 @@
 	        </div>
 	      </div>
     	</div>
-    </section>
+    </section> -->
 		
-		<section class="ftco-section">
+		<!-- <section class="ftco-section">
 			<div class="container">
 				<div class="row justify-content-center pb-5 mb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
@@ -575,7 +523,7 @@
           </div>
         </div>
 			</div>
-		</section>
+		</section> -->
 
     <section class="ftco-section bg-light">
       <div class="container">
@@ -631,74 +579,6 @@
       </div>
     </section>
 
-    <section class="ftco-appointment ftco-section ftco-no-pt ftco-no-pb img" style="background-image: url('{{ asset('asset/images/bg_3.jpg') }}');">
-			<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row d-md-flex justify-content-end">
-    			<div class="col-md-12 col-lg-6 half p-3 py-5 pl-lg-5 ftco-animate">
-    				<h2 class="mb-4">Contact Us</h2>
-					<p class="text-white">Have questions, need assistance, or want to share feedback? Contact us at WalkMyPet to learn more about our services, book your next pet care session, or let us know how we can improve!</p>
-    				<form action="#" class="appointment">
-    					<div class="row">
-    						<div class="col-md-12">
-									<div class="form-group">
-			    					<div class="form-field">
-	          					<div class="select-wrap">
-	                      <div class="icon"><span class="fa fa-chevron-down"></span></div>
-	                      <select name="" id="" class="form-control">
-	                      	<option value="">Select services</option>
-	                        <option value="">Pet Walking</option>
-	                        <option value="">Dog Walk</option>
-	                        <option value="">Pet Spa</option>
-	                        <option value="">Pet Grooming</option>
-	                        <option value="">Pet Daycare</option>
-	                      </select>
-	                    </div>
-			              </div>
-			    				</div>
-								</div>
-								<!-- <div class="col-md-12">
-									<div class="form-group">
-			              <input type="text" class="form-control" placeholder="Your Name">
-			            </div>
-								</div> -->
-								<!-- <div class="col-md-6">
-									<div class="form-group">
-			              <input type="text" class="form-control" placeholder="Vehicle number">
-			            </div>
-								</div> -->
-								<!-- <div class="col-md-6">
-									<div class="form-group">
-			    					<div class="input-wrap">
-			            		<div class="icon"><span class="fa fa-calendar"></span></div>
-			            		<input type="text" class="form-control appointment_date" placeholder="Date">
-		            		</div>
-			    				</div>
-								</div> -->
-								<!-- <div class="col-md-6">
-									<div class="form-group">
-			    					<div class="input-wrap">
-			            		<div class="icon"><span class="fa fa-clock-o"></span></div>
-			            		<input type="text" class="form-control appointment_time" placeholder="Time">
-		            		</div>
-			    				</div>
-								</div> -->
-								<div class="col-md-12">
-									<div class="form-group">
-			              <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-			            </div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-			              <input type="submit" value="Send message" class="btn btn-primary py-3 px-4">
-			            </div>
-								</div>
-    					</div>
-	          </form>
-    			</div>
-    		</div>
-    	</div>
-    </section>
 
 	<footer class="footer" style="padding-top: 40px; padding-bottom: 25px;">
     <div class="container">
