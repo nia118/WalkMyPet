@@ -81,9 +81,9 @@
       </div>
     </div>
 
-    <section class="ftco-section bg-light ftco-no-pt ftco-intro">
+    <!-- <section class="ftco-section bg-light ftco-no-pt ftco-intro">
     	<div class="container">
-    		<div class="row">
+    	<div class="row">
           <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
             <div class="d-block services active text-center">
               <div class="icon d-flex align-items-center justify-content-center">
@@ -96,6 +96,7 @@
               </div>
             </div>      
           </div>
+
           <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
             <div class="d-block services text-center">
               <div class="icon d-flex align-items-center justify-content-center">
@@ -108,6 +109,7 @@
               </div>
             </div>    
           </div>
+		  
           <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
             <div class="d-block services text-center">
               <div class="icon d-flex align-items-center justify-content-center">
@@ -122,7 +124,7 @@
           </div>
         </div>
     	</div>
-    </section>
+    </section> -->
 
     <section class="ftco-section ftco-no-pt ftco-no-pb">
     	<div class="container">
