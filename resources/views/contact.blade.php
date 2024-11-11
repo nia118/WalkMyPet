@@ -118,6 +118,13 @@
 		</nav>
     <!-- END nav -->
 
+    <!-- Pesan Sukses -->
+    @if (session('success'))
+    <div class="alert alert-success text-center">
+        {{ session('success') }}
+    </div>
+    @endif
+
     <section class="hero-wrap hero-wrap-2" style="background-image: url('{{ asset('asset/images/bg_2.jpg') }}');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -185,6 +192,7 @@
                     <div class="contact-wrap w-100 p-md-5 p-4" style="box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
                     <h2 class="mb-4 text-center">Contact Us</h2>
                     <p class="text-center">Have questions, need assistance, or want to share feedback? Contact us at WalkMyPet to learn more about our services, book your next pet care session, or let us know how we can improve!</p>
+
                     <form action="{{ route('contact.store') }}" method="POST" class="appointment">
                         @csrf
                         <div class="form-group">
@@ -335,20 +343,26 @@
   <script src="{{ asset('asset/js/main.js') }}"></script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var stars = document.querySelectorAll('#rating .fa');
-      stars.forEach(function(star, index) {
-        star.addEventListener('click', function() {
-          var ratingValue = index + 1;
-          document.querySelector('.rating-value').value = ratingValue;
-          stars.forEach((s, i) => {
-            s.classList.toggle('fa-star', i < ratingValue);
-            s.classList.toggle('fa-star-o', i >= ratingValue);
-          });
+        // JavaScript to update the hidden rating input when a star is clicked
+        document.querySelectorAll('.star-rating .fa').forEach(function(star) {
+            star.addEventListener('click', function() {
+                var rating = this.getAttribute('data-rating');
+                document.querySelector('.rating-value').value = rating;
+
+                // Add active class to stars
+                document.querySelectorAll('.star-rating .fa').forEach(function(star) {
+                    star.classList.remove('fa-star');
+                    star.classList.add('fa-star-o');
+                });
+
+                // Add active class to selected stars
+                for (var i = 0; i < rating; i++) {
+                    document.querySelectorAll('.star-rating .fa')[i].classList.remove('fa-star-o');
+                    document.querySelectorAll('.star-rating .fa')[i].classList.add('fa-star');
+                }
+            });
         });
-      });
-    });
-  </script>
+    </script>
     
   </body>
 </html>
