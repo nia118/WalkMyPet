@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,7 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('/home', [MessageController::class, 'showMessage'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
