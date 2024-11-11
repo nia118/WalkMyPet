@@ -277,6 +277,46 @@
     </section>
 
     <section class="ftco-section testimony-section" style="background-image: url('{{ asset('asset/images/bg_2.jpg') }}');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center pb-5 mb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2>Happy Clients &amp; Feedbacks</h2>
+                </div>
+            </div>
+            <div class="row ftco-animate">
+                <div class="col-md-12">
+                    <div class="carousel-testimony owl-carousel ftco-owl">
+                        @foreach($messages as $message)
+                        <div class="item">
+                            <div class="testimony-wrap py-4">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
+                                <div class="text">
+                                    <p class="mb-4">{{ $message['comment'] }}</p>
+                                    <div class="d-flex align-items-center">
+                                    <div class="pl-3">
+                                        <p class="name">{{ $message->customer->name }}</p>
+                                        <span class="position">{{ $message->type }}</span>
+
+                                        <div class="rating">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                          <span class="fa {{ $i <= $message->rating ? 'fa-star text-warning' : 'fa-star-o text-warning' }}"></span>
+                                        @endfor
+                                        </div>
+
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="ftco-section testimony-section" style="background-image: url('{{ asset('asset/images/bg_2.jpg') }}');">
     	<div class="overlay"></div>
       <div class="container">
         <div class="row justify-content-center pb-5 mb-3">
@@ -366,7 +406,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- <section class="ftco-section bg-light">
     	<div class="container">
