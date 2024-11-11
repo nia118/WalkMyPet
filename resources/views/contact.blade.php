@@ -21,6 +21,80 @@
 
     <link rel="stylesheet" href="{{ asset('asset/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+
+    <style>
+    /* Container untuk form dan gambar tanpa jarak */
+    .contact-container {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        justify-content: center;
+    }
+    .contact-form {
+        flex: 1;
+        max-width: 600px;
+        margin: 0;
+    }
+    .contact-wrap {
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 8px 0 0 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .contact-wrap h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .contact-wrap p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 30px;
+    }
+    .form-group label {
+        font-weight: 600;
+        color: #333;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .btn-primary {
+        background-color: #28a745;
+        border-color: #28a745;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        border-radius: 4px;
+    }
+    .btn-primary:hover {
+        background-color: #218838;
+    }
+    .select-wrap {
+        margin-bottom: 10px;
+    }
+    /* CSS untuk ikon rating */
+    .star-rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 24px;
+    }
+    .star-rating .fa {
+        color: #FFD700;
+        cursor: pointer;
+    }
+    /* Style untuk gambar */
+    .contact-image {
+    flex: 1;
+    background-image: url('{{ asset('asset/images/img.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan shadow di sini */
+    }
+    </style>
+
   </head>
   <body>
 
@@ -43,6 +117,7 @@
 			</div>
 		</nav>
     <!-- END nav -->
+
     <section class="hero-wrap hero-wrap-2" style="background-image: url('{{ asset('asset/images/bg_2.jpg') }}');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -56,133 +131,118 @@
     </section>
 
     <section class="ftco-section bg-light">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-md-6 text-center mb-0">
-						<!-- <h2 class="heading-section">Contact</h2> -->
-					</div>
-				</div>
-				<div class="row justify-content-center">
-					<div class="col-md-12">
-						<div class="wrapper">
-							<div class="row mb-5">
-								<div class="col-md-3">
-									<div class="dbox w-100 text-center">
-				        		<div class="icon d-flex align-items-center justify-content-center">
-				        			<span class="fa fa-map-marker"></span>
-				        		</div>
-				        		<div class="text">
-					            <p><span>Address:</span> Surabaya, Indonesia</p>
-					          </div>
-				          </div>
-								</div>
-								<div class="col-md-3">
-									<div class="dbox w-100 text-center">
-				        		<div class="icon d-flex align-items-center justify-content-center">
-				        			<span class="fa fa-phone"></span>
-				        		</div>
-				        		<div class="text">
-					            <p><span>Phone:</span> <a href="tel://1234567920">+62 1234 567</a></p>
-					          </div>
-				          </div>
-								</div>
-								<div class="col-md-3">
-									<div class="dbox w-100 text-center">
-				        		<div class="icon d-flex align-items-center justify-content-center">
-				        			<span class="fa fa-paper-plane"></span>
-				        		</div>
-				        		<div class="text">
-					            <p><span>Email:</span> <a href="mailto:info@yoursite.com">walkmypet@gmail.com</a></p>
-					          </div>
-				          </div>
-								</div>
-								<div class="col-md-3">
-									<div class="dbox w-100 text-center">
-				        		<div class="icon d-flex align-items-center justify-content-center">
-				        			<span class="fa fa-globe"></span>
-				        		</div>
-				        		<div class="text">
-					            <p><span>Website</span> <a href="#">walkmypet.com</a></p>
-					          </div>
-				          </div>
-								</div>
-							</div>
-							<div class="row no-gutters">
-								<div class="col-md-7">
-									<div class="contact-wrap w-100 p-md-5 p-4">
+    <div class="container">
+        <div class="contact-container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+            <div class="wrapper">
+                <div class="row mb-5">
+                <div class="col-md-3">
+                    <div class="dbox w-100 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="fa fa-map-marker"></span>
+                    </div>
+                    <div class="text">
+                        <p><span>Address:</span> Surabaya, Indonesia</p>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dbox w-100 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="fa fa-phone"></span>
+                    </div>
+                    <div class="text">
+                        <p><span>Phone:</span> <a href="tel://1234567920">+62 1234 567</a></p>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dbox w-100 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="fa fa-paper-plane"></span>
+                    </div>
+                    <div class="text">
+                        <p><span>Email:</span> <a href="mailto:info@yoursite.com">walkmypet@gmail.com</a></p>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dbox w-100 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="fa fa-globe"></span>
+                    </div>
+                    <div class="text">
+                        <p><span>Website</span> <a href="#">walkmypet.com</a></p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="row no-gutters">
+                <!-- Contact Form (Left Side) -->
+                <div class="col-md-7">
+                    <div class="contact-wrap w-100 p-md-5 p-4" style="box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+                    <h2 class="mb-4 text-center">Contact Us</h2>
+                    <p class="text-center">Have questions, need assistance, or want to share feedback? Contact us at WalkMyPet to learn more about our services, book your next pet care session, or let us know how we can improve!</p>
+                    <form action="{{ route('contact.store') }}" method="POST" class="appointment">
+                        @csrf
+                        <div class="form-group">
+                            <label for="service">Select Services</label>
+                            <div class="select-wrap">
+                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                <select name="service" id="service" class="form-control">
+                                    <option value="">Choose a service</option>
+                                    <option value="pet_sitting">Pet Sitting</option>
+                                    <option value="pet_walking">Pet Walking</option>
+                                    <option value="pet_training">Pet Training</option>
+                                    <option value="pet_grooming">Pet Grooming</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Your message here..."></textarea>
+                        </div>
+
+                        <!-- Rating Section -->
+                        <div class="form-group">
+                            <label for="rating">Rating</label>
+                            <div id="rating" class="star-rating">
+                                <span class="fa fa-star-o" data-rating="1"></span>
+                                <span class="fa fa-star-o" data-rating="2"></span>
+                                <span class="fa fa-star-o" data-rating="3"></span>
+                                <span class="fa fa-star-o" data-rating="4"></span>
+                                <span class="fa fa-star-o" data-rating="5"></span>
+                                <input type="hidden" name="rating" class="rating-value" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <input type="submit" value="Send Message" class="btn btn-primary">
+                        </div>
+                    </form>
+
+                    </div>
+                </div>
+
+                <!-- Contact Image (Right Side) -->
+                <div class="col-md-5">
+                    <div class="contact-image" style="background-image: url('{{ asset('asset/images/img.jpg') }}'); background-size: cover; background-position: center; border-radius: 0 8px 8px 0; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); height: 100%;"></div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
 
 
-                                    <h2 class="mb-4">Contact Us</h2>
-                                        <p class="text-black">Have questions, need assistance, or want to share feedback? Contact us at WalkMyPet to learn more about our services, book your next pet care session, or let us know how we can improve!</p>
-                                            <form action="#" class="appointment">
-                                            <div class="row">
-                                            <div class="col-md-12">
-                                            <div class="form-group">
-                                                <div class="form-field">
-                                                    <div class="select-wrap">
-                                                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                        <select name="" id="" class="form-control">
-                                                            <option value="">Select services</option>
-                                                            <option value="">Pet Sitting</option>
-                                                            <option value="">Pet Walking</option>
-                                                            <option value="">Pet Training</option>
-                                                            <option value="">Pet Grooming</option>
-                                                            <option value="">Other</option>
-                                                        </select>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            </div>
-                                            <!-- <div class="col-md-12">
-                                            <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Your Name">
-                                                </div>
-                                            </div> -->
-                                            <!-- <div class="col-md-6">
-                                            <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Vehicle number">
-                                                </div>
-                                            </div> -->
-                                            <!-- <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="input-wrap">
-                                                    <div class="icon"><span class="fa fa-calendar"></span></div>
-                                                    <input type="text" class="form-control appointment_date" placeholder="Date">
-                                                    </div>
-                                            </div>
-                                            </div> -->
-                                            <!-- <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="input-wrap">
-                                                    <div class="icon"><span class="fa fa-clock-o"></span></div>
-                                                    <input type="text" class="form-control appointment_time" placeholder="Time">
-                                                    </div>
-                                            </div>
-                                            </div> -->
-                                            <div class="col-md-12">
-                                            <div class="form-group">
-                                                    <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                            <div class="form-group">
-                                                    <input type="submit" value="Send message" class="btn btn-primary py-3 px-4">
-                                                </div>
-                                            </div>
-                                            </div>
-                                            </form>
-									</div>
-								</div>
-								<div class="col-md-5 d-flex align-items-stretch">
-									<div class="info-wrap w-100 p-5 img" style="background-image: url('{{ asset('asset/images/img.jpg') }}');">
-				          </div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+
+
 
 		<!-- <div id="map" class="map"></div> -->
 
@@ -257,7 +317,6 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
   <script src="{{ asset('asset/js/jquery.min.js') }}"></script>
   <script src="{{ asset('asset/js/jquery-migrate-3.0.1.min.js') }}"></script>
   <script src="{{ asset('asset/js/popper.min.js') }}"></script>
@@ -275,6 +334,21 @@
   <script src="{{ asset('asset/js/google-map.js') }}"></script>
   <script src="{{ asset('asset/js/main.js') }}"></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var stars = document.querySelectorAll('#rating .fa');
+      stars.forEach(function(star, index) {
+        star.addEventListener('click', function() {
+          var ratingValue = index + 1;
+          document.querySelector('.rating-value').value = ratingValue;
+          stars.forEach((s, i) => {
+            s.classList.toggle('fa-star', i < ratingValue);
+            s.classList.toggle('fa-star-o', i >= ratingValue);
+          });
+        });
+      });
+    });
+  </script>
     
   </body>
 </html>
