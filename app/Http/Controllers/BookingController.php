@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Pet; 
 use App\Models\Schedule;
 use App\Models\Service;
@@ -57,6 +58,63 @@ class BookingController extends Controller
         } catch (\Exception $e) {
             Log::error('Error fetching staff: ' . $e->getMessage());
             return response()->json(['error' => 'Server Error'], 500);
+        }
+    }
+
+    public function storeBooking(Request $request)
+    {
+        try {
+            // Validate the incoming request
+            $request->validate([
+                'customer_id' => 'required|exists:customers,id',
+                'service_id' => 'required|exists:services,id',
+                'location' => 'required|string|max:255',
+                'amount' => 'required|numeric',
+                'total_price' => 'required|numeric',
+                'staff_schedule_id' => 'required|exists:staff_schedules,id', // Selected staff schedule
+            ]);
+
+            // Create the booking
+            $booking = Booking::create([
+                'customer_id' => $request->customer_id,
+                'service_id' => $request->service_id,
+                'location' => $request->location,
+                'amount' => $request->amount,
+                'total_price' => $request->total_price,
+                'is_accepted' => false, // Booking is not accepted by default
+            ]);
+
+            // Find the selected staff schedule and link the booking_id
+            $staffSchedule = Schedule::findOrFail($request->staff_schedule_id);
+            $staffSchedule->booking_id = $booking->id; // Set the booking_id in staff schedule
+            $staffSchedule->save();
+
+            return response()->json([
+                'message' => 'Booking created successfully!',
+                'booking_id' => $booking->id,
+                'staff_schedule_id' => $staffSchedule->id
+            ], 201);
+
+        } catch (\Exception $e) {
+            Log::error('Error creating booking: ' . $e->getMessage());
+            return response()->json(['error' => 'Error creating booking'], 500);
+        }
+    }
+
+    public function acceptBooking($bookingId)
+    {
+        try {
+            $booking = Booking::findOrFail($bookingId);
+            $booking->is_accepted = true;
+            $booking->save();
+
+            return response()->json([
+                'message' => 'Booking accepted successfully!',
+                'booking' => $booking
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Error accepting booking: ' . $e->getMessage());
+            return response()->json(['error' => 'Error accepting booking'], 500);
         }
     }
 }

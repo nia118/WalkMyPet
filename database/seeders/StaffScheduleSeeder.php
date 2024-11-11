@@ -29,6 +29,20 @@ class StaffScheduleSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'staff_id' => 2,      
+                'schedule_id' => 3,    
+                'booking_id' => null,    
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'staff_id' => 4,      
+                'schedule_id' => 3,    
+                'booking_id' => null,    
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }
