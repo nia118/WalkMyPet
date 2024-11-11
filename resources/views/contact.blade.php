@@ -201,11 +201,11 @@
                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
                                 <select name="service" id="service" class="form-control">
                                     <option value="">Choose a service</option>
-                                    <option value="pet_sitting">Pet Sitting</option>
-                                    <option value="pet_walking">Pet Walking</option>
-                                    <option value="pet_training">Pet Training</option>
-                                    <option value="pet_grooming">Pet Grooming</option>
-                                    <option value="other">Other</option>
+                                    <option value="Pet Sitting">Pet Sitting</option>
+                                    <option value="Pet Walking">Pet Walking</option>
+                                    <option value="Pet Training">Pet Training</option>
+                                    <option value="Pet Grooming">Pet Grooming</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                         </div>
