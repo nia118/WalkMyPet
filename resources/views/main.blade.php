@@ -21,6 +21,66 @@
 
     <link rel="stylesheet" href="{{ asset('asset/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+    <style>
+      .testimony-wrap {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 320px; /* A slightly larger width */
+          height: 260px; /* Adjust the height to make the box more balanced */
+          box-sizing: border-box;
+          padding: 30px;
+          margin: 15px;
+          background: #fff;
+          border-radius: 15px;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add smooth transition on hover */
+      }
+
+      .testimony-wrap:hover {
+          transform: translateY(-5px); /* Lift effect on hover */
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+      }
+
+      .testimony-wrap .text {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+      }
+
+      .testimony-wrap .name {
+          font-weight: bold;
+          font-size: 18px;
+          color: #333;
+          margin-bottom: 5px;
+      }
+
+      .testimony-wrap .position {
+          font-style: italic;
+          color: #777;
+          margin-bottom: 10px;
+      }
+
+      .testimony-wrap .rating {
+          font-size: 18px;
+      }
+
+      .carousel-testimony {
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+      }
+
+      .carousel-testimony .item {
+          display: flex;
+          justify-content: center;
+      }
+
+      .fa-star, .fa-star-o {
+          color: #f39c12;
+      }
+  </style>
   </head>
   <body>
     <!-- <div class="wrap">
@@ -45,24 +105,33 @@
 				</div>
 			</div>
 		</div> -->
-		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-			<div class="container">
-				<a class="navbar-brand" href="index.html">
-					<img src="{{ asset('asset/images/logo_walkmypet.png') }}" alt="WalkMyPet Logo" style="height: 80px;">
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="fa fa-bars"></span> Menu
-				</button>
-				<div class="collapse navbar-collapse" id="ftco-nav">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-						<li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
-						<li class="nav-item"><a href="{{ route('service') }}" class="nav-link">Service</a></li>
-						<li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+          <a class="navbar-brand" href="index.html">
+              <img src="{{ asset('asset/images/logo_walkmypet.png') }}" alt="WalkMyPet Logo" style="height: 80px;">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="fa fa-bars"></span> Menu
+          </button>
+          <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+                      <a href="{{ route('home') }}" class="nav-link">Home</a>
+                  </li>
+                  <li class="nav-item {{ Route::is('about') ? 'active' : '' }}">
+                      <a href="{{ route('about') }}" class="nav-link">About</a>
+                  </li>
+                  <li class="nav-item {{ Route::is('service') ? 'active' : '' }}">
+                      <a href="{{ route('service') }}" class="nav-link">Service</a>
+                  </li>
+                  <li class="nav-item {{ Route::is('contact') ? 'active' : '' }}">
+                      <a href="{{ route('contact') }}" class="nav-link">Contact</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
     <!-- END nav -->
     <div class="hero-wrap js-fullheight" style="background-image: url('{{ asset('asset/images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
@@ -173,9 +242,9 @@
     		<div class="row">
     			<div class="col-lg-6 order-md-last">
     				<div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url('{{ asset('asset/images/about.jpg') }}');">
-    					<a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+    					<!-- <a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
     						<span class="fa fa-play"></span>
-    					</a>
+    					</a> -->
     				</div>
     				<div class="d-flex mt-3">
     					<div class="img img-2 mr-md-2" style="background-image:url('{{ asset('asset/images/about-2.jpg') }}');"></div>
@@ -186,7 +255,7 @@
     			<div class="col-lg-6">
     				<div class="heading-section mb-5 mt-5 mt-lg-0">
 	            <h2 class="mb-3">Frequently Asks Questions</h2>
-	            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+	            <p>Have questions? We've got answers! Explore common inquiries about our services and features.</p>
     				</div>
     				<div id="accordion" class="myaccordion w-100" aria-multiselectable="true">
 						  <div class="card">
@@ -201,11 +270,11 @@
 						    <div class="collapse show" id="collapseOne" role="tabpanel" aria-labelledby="headingOne">
 						      <div class="card-body py-3 px-0">
 						      	<ol>
-						      		<li>Far far away, behind the word mountains</li>
-						      		<li>Consonantia, there live the blind texts</li>
-						      		<li>When she reached the first hills of the Italic Mountains</li>
-						      		<li>Bookmarksgrove, the headline of Alphabet Village</li>
-						      		<li>Separated they live in Bookmarksgrove right</li>
+						      		<li>Start with commands like "sit," "stay," and "come".</li>
+						      		<li>Reward good behavior with treats or praise.</li>
+						      		<li>Use the same commands and practice daily.</li>
+						      		<li>Train for 10&ndash;15 minutes to keep focus.</li>
+						      		<li>Expose your dog to various environments and people.</li>
 						      	</ol>
 						      </div>
 						    </div>
@@ -223,11 +292,11 @@
 						    <div class="collapse" id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo">
 						      <div class="card-body py-3 px-0">
 						      	<ol>
-						      		<li>Far far away, behind the word mountains</li>
-						      		<li>Consonantia, there live the blind texts</li>
-						      		<li>When she reached the first hills of the Italic Mountains</li>
-						      		<li>Bookmarksgrove, the headline of Alphabet Village</li>
-						      		<li>Separated they live in Bookmarksgrove right</li>
+						      		<li>Ensure your pet has proper nutrition based on its breed and size.</li>
+						      		<li>Keep your pet active with daily walks or playtime.</li>
+						      		<li>Visit the vet regularly for vaccinations and health checks.</li>
+						      		<li>Provide a safe and cozy space for your pet to rest.</li>
+						      		<li>Teach basic commands and let your pet interact with others to build good behavior.</li>
 						      	</ol>
 						      </div>
 						    </div>
@@ -245,11 +314,11 @@
 						    <div class="collapse" id="collapseThree" role="tabpanel" aria-labelledby="headingTwo">
 						      <div class="card-body py-3 px-0">
 						      	<ol>
-						      		<li>Far far away, behind the word mountains</li>
-						      		<li>Consonantia, there live the blind texts</li>
-						      		<li>When she reached the first hills of the Italic Mountains</li>
-						      		<li>Bookmarksgrove, the headline of Alphabet Village</li>
-						      		<li>Separated they live in Bookmarksgrove right</li>
+						      		<li>Keep your pet&#39;s coat clean and free of tangles.</li>
+						      		<li>Use pet-friendly shampoo for regular cleaning based on your pet&#39;s needs.</li>
+						      		<li>Clip nails to prevent discomfort or injury.</li>
+						      		<li>Gently clean ears to avoid infections.</li>
+						      		<li>Brush your pet&#39;s teeth or use dental treats to maintain oral health.</li>
 						      	</ol>
 						      </div>
 						    </div>
@@ -259,14 +328,20 @@
 						    <div class="card-header p-0" id="headingFour" role="tab">
 						      <h2 class="mb-0">
 						        <button href="#collapseFour" class="d-flex py-3 px-4 align-items-center justify-content-between btn btn-link" data-parent="#accordion" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFour">
-						        	<p class="mb-0">What are those requirements for sitting pets?</p>
+						        	<p class="mb-0">What are the requirements for pet sitting?</p>
 						          <i class="fa" aria-hidden="true"></i>
 						        </button>
 						      </h2>
 						    </div>
 						    <div class="collapse" id="collapseFour" role="tabpanel" aria-labelledby="headingTwo">
 						      <div class="card-body py-3 px-0">
-						      	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                  <ol>
+						      		<li>Understanding pet behavior and needs.</li>
+						      		<li>Basic understanding of feeding, grooming, and health needs.</li>
+						      		<li>Being punctual and dependable for pet care schedules.</li>
+						      		<li>Knowing what to do in case of a pet emergency.</li>
+						      		<li>Ability to stay calm and handle pets of all sizes and temperaments.</li>
+						      	</ol>
 						      </div>
 						    </div>
 						  </div>
@@ -277,43 +352,44 @@
     </section>
 
     <section class="ftco-section testimony-section" style="background-image: url('{{ asset('asset/images/bg_2.jpg') }}');">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row justify-content-center pb-5 mb-3">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <h2>Happy Clients &amp; Feedbacks</h2>
-                </div>
-            </div>
-            <div class="row ftco-animate">
-                <div class="col-md-12">
-                    <div class="carousel-testimony owl-carousel ftco-owl">
-                        @foreach($messages as $message)
-                        <div class="item">
-                            <div class="testimony-wrap py-4">
-                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></span></div>
-                                <div class="text">
-                                    <p class="mb-4">{{ $message['comment'] }}</p>
-                                    <div class="d-flex align-items-center">
-                                    <div class="pl-3">
-                                        <p class="name">{{ $message->customer->name }}</p>
-                                        <span class="position">{{ $message->type }}</span>
+      <div class="overlay"></div>
+      <div class="container">
+          <div class="row justify-content-center pb-5 mb-3">
+              <div class="col-md-7 heading-section text-center ftco-animate">
+                  <h2>Happy Clients &amp; Feedbacks</h2>
+              </div>
+          </div>
+          <div class="row ftco-animate">
+              <div class="col-md-12">
+                  <div class="carousel-testimony owl-carousel ftco-owl">
+                      @foreach($messages as $message)
+                      <div class="item">
+                          <div class="testimony-wrap py-4">
+                              <div class="icon d-flex align-items-center justify-content-center">
+                                  <span class="fa fa-quote-left"></span>
+                              </div>
+                              <div class="text">
+                                  <p class="mb-4">{{ $message['comment'] }}</p>
+                                  <div class="d-flex align-items-center">
+                                      <div class="pl-3">
+                                          <p class="name">{{ $message->customer->name }}</p>
+                                          <span class="position">{{ $message->type }}</span>
 
-                                        <div class="rating">
-                                        @for ($i = 1; $i <= 5; $i++)
-                                          <span class="fa {{ $i <= $message->rating ? 'fa-star text-warning' : 'fa-star-o text-warning' }}"></span>
-                                        @endfor
-                                        </div>
-
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
+                                          <div class="rating">
+                                              @for ($i = 1; $i <= 5; $i++)
+                                                  <span class="fa {{ $i <= $message->rating ? 'fa-star text-warning' : 'fa-star-o text-warning' }}"></span>
+                                              @endfor
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      @endforeach
+                  </div>
+              </div>
+          </div>
+      </div>
     </section>
 
     <!-- <section class="ftco-section testimony-section" style="background-image: url('{{ asset('asset/images/bg_2.jpg') }}');">
@@ -579,11 +655,11 @@
               </a>
               <div class="text p-4">
               	<div class="meta mb-2">
-                  <div><a href="#">April 07, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                  <div><a href="#">August 1, 2024</a></div>
+                  <div><a href="#">Kinship</a></div>
+                  <!-- <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div> -->
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <h3 class="heading"><a href="https://www.kinship.com/dog-lifestyle/10-dog-walking-tips-everyone-should-know">10 Tips You&#39;ll Definitely Want to Follow When You Walk Your Dog</a></h3>
               </div>
             </div>
           </div>
@@ -593,25 +669,25 @@
               </a>
               <div class="text p-4">
               	<div class="meta mb-2">
-                  <div><a href="#">April 07, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                  <div><a href="#">Oct. 30, 2023</a></div>
+                  <div><a href="#">petMD</a></div>
+                  <!-- <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div> -->
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <h3 class="heading"><a href="https://www.petmd.com/dog/general-health/grooming-tips-new-puppy">Grooming Tips for Your New Puppy</a></h3>
               </div>
             </div>
           </div>
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('{{ asset('asset/images/image_3.jpg') }}');">
+              <a href="blog-single.html" class="block-20 rounded" style="background-image: url('{{ asset('asset/images/pricing-2.jpg') }}');">
               </a>
               <div class="text p-4">
               	<div class="meta mb-2">
-                  <div><a href="#">April 07, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                  <div><a href="#">May 1, 2021</a></div>
+                  <div><a href="#">The Grand Paw</a></div>
+                  <!-- <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div> -->
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <h3 class="heading"><a href="https://thegrandpaw.com/how-to-spend-quality-time-with-your-dog/">How To Spend Quality Time With Your Dog</a></h3>
               </div>
             </div>
           </div>
@@ -640,10 +716,10 @@
                 <div class="block-21 mb-2 d-flex">
                     <a class="img mr-3 rounded" style="background-image: url('{{ asset('asset/images/image_1.jpg') }}'); width: 60px; height: 60px;"></a>
                     <div class="text">
-                        <h3 class="heading"><a href="#">Top Tips for Walking Your Dog Like a Pro</a></h3>
+                        <h3 class="heading"><a href="https://www.kinship.com/dog-lifestyle/10-dog-walking-tips-everyone-should-know">10 Tips Yout&#39;ll Definitely Want to Follow When You Walk Your Dog</a></h3>
                         <div class="meta">
-                            <div><a href="#"><span class="icon-calendar"></span> October 26, 2024</a></div>
-                            <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                            <div><a href="#"><span class="icon-calendar"></span> August 1, 2024</a></div>
+                            <div><a href="#"><span class="icon-person"></span>Kinship</a></div>
                         </div>
                     </div>
                 </div>
@@ -691,7 +767,7 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
+  
   <script src="{{ asset('asset/js/jquery.min.js') }}"></script>
   <script src="{{ asset('asset/js/jquery-migrate-3.0.1.min.js') }}"></script>
   <script src="{{ asset('asset/js/popper.min.js') }}"></script>
