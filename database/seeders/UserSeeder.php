@@ -20,6 +20,9 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),
+            'address' => 'Jl. Mayjen Sungkono No. 123, Surabaya',
+            'phone_number' => '0812-3456-7890',
+            'is_active' => true,
         ]);
 
         User::create([
@@ -31,6 +34,9 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),
+            'address' => 'Jl. Diponegoro No. 456, Surabaya',
+            'phone_number' => '0821-9876-5432',
+            'is_active' => true,
         ]);
 
         User::create([
@@ -42,6 +48,9 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),
+            'address' => 'Jl. HR Muhammad No. 789, Surabaya',
+            'phone_number' => '0856-1234-5678',
+            'is_active' => true,
         ]);
 
         User::create([
@@ -53,6 +62,9 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),
+            'address' => 'Jl. Basuki Rahmat No. 321, Surabaya',
+            'phone_number' => '0813-2222-3333',
+            'is_active' => true,
         ]);
 
         User::create([
@@ -64,6 +76,9 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),
+            'address' => 'Jl. Raya Darmo No. 654, Surabaya',
+            'phone_number' => '0857-4444-5555',
+            'is_active' => false,
         ]);
     }
 }
