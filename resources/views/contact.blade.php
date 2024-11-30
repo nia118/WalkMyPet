@@ -314,10 +314,10 @@
             <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
                 <h2 class="footer-heading">Quick Links</h2>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="py-1 d-block">Home</a></li>
-                    <li><a href="#" class="py-1 d-block">About</a></li>
-                    <li><a href="#" class="py-1 d-block">Services</a></li>
-                    <li><a href="#" class="py-1 d-block">Contact</a></li>
+                <li {{ Route::is('home') ? 'active' : '' }} ><a href="{{ route('home') }}" class="py-1 d-block">Home</a></li>
+                    <li {{ Route::is('about') ? 'active' : '' }} ><a href="{{ route('about') }}" class="py-1 d-block">About</a></li>
+                    <li {{ Route::is('sevice') ? 'active' : '' }} ><a href="{{ route('service') }}" class="py-1 d-block">Services</a></li>
+                    <li {{ Route::is('contact') ? 'active' : '' }} ><a href="{{ route('contact') }}" class="py-1 d-block">Contact</a></li>
                 </ul>
             </div>
 
