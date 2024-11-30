@@ -112,6 +112,24 @@
 						<li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
 						<li class="nav-item"><a href="{{ route('service') }}" class="nav-link">Service</a></li>
 						<li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
+
+                        <!-- Dropdown -->
+                        @auth
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                                </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a>
+                            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                                @csrf
+                                <button class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </button>
+                            </form>
+                        </div>
+                        </li>
+                        @endauth
 					</ul>
 				</div>
 			</div>
