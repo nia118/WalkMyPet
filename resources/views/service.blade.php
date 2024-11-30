@@ -49,43 +49,51 @@
 			</div>
 		</div> -->
 
-		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-			<div class="container">
-				<a class="navbar-brand" href="index.html">
-					<img src="{{ asset('asset/images/logo_walkmypet.png') }}" alt="WalkMyPet Logo" style="height: 80px;">
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="fa fa-bars"></span> Menu
-				</button>
-				<div class="collapse navbar-collapse" id="ftco-nav">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-						<li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
-						<li class="nav-item"><a href="{{ route('service') }}" class="nav-link">Service</a></li>
-						<li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+          <a class="navbar-brand" href="index.html">
+              <img src="{{ asset('asset/images/logo_walkmypet.png') }}" alt="WalkMyPet Logo" style="height: 80px;">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="fa fa-bars"></span> Menu
+          </button>
+          <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item {{ Route::is('home') ? 'active' : '' }}">
+                      <a href="{{ route('home') }}" class="nav-link">Home</a>
+                  </li>
+                  <li class="nav-item {{ Route::is('about') ? 'active' : '' }}">
+                      <a href="{{ route('about') }}" class="nav-link">About</a>
+                  </li>
+                  <li class="nav-item {{ Route::is('service') ? 'active' : '' }}">
+                      <a href="{{ route('service') }}" class="nav-link">Service</a>
+                  </li>
+                  <li class="nav-item {{ Route::is('contact') ? 'active' : '' }}">
+                      <a href="{{ route('contact') }}" class="nav-link">Contact</a>
+                  </li>
 
-            <!-- Dropdown -->
-            @auth
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ Auth::user()->name }}
-                    </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a>
-                  <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                    @csrf
-                    <button class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </button>
-                </form>
-              </div>
-            </li>
-            @endauth
-					</ul>
-				</div>
-			</div>
-		</nav>
+                  <!-- Dropdown -->
+                  @auth
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {{ Auth::user()->name }}
+                          </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a>
+                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                          @csrf
+                          <button class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
+                              {{ __('Log Out') }}
+                          </button>
+                      </form>
+                    </div>
+                  </li>
+                  @endauth
 
+              </ul>
+          </div>
+      </div>
+  </nav>
     <!-- END nav -->
     <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('asset/images/bg_2.jpg') }});" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
@@ -166,7 +174,7 @@
 </section>
 
 
-    <footer class="footer" style="padding-top: 40px; padding-bottom: 25px;">
+<footer class="footer" style="padding-top: 40px; padding-bottom: 25px;">
     <div class="container">
         <div class="row">
             <!-- WalkMyPet Section -->
@@ -186,10 +194,10 @@
                 <div class="block-21 mb-2 d-flex">
                     <a class="img mr-3 rounded" style="background-image: url('{{ asset('asset/images/image_1.jpg') }}'); width: 60px; height: 60px;"></a>
                     <div class="text">
-                        <h3 class="heading"><a href="#">Top Tips for Walking Your Dog Like a Pro</a></h3>
+                        <h3 class="heading"><a href="https://www.kinship.com/dog-lifestyle/10-dog-walking-tips-everyone-should-know">10 Tips Yout&#39;ll Definitely Want to Follow When You Walk Your Dog</a></h3>
                         <div class="meta">
-                            <div><a href="#"><span class="icon-calendar"></span> October 26, 2024</a></div>
-                            <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                            <div><a href="#"><span class="icon-calendar"></span> August 1, 2024</a></div>
+                            <div><a href="#"><span class="icon-person"></span>Kinship</a></div>
                         </div>
                     </div>
                 </div>
