@@ -27,7 +27,7 @@ class ContactController extends Controller
         
         // Create a new message in the database
         Message::create([
-            'customer_id' => $customer->id, // Save the customer ID
+            'customer_id' => $customer->id,
             'rating' => $validated['rating'],
             'comment' => $validated['message'],
             'type' => $validated['service'],

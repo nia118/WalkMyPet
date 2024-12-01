@@ -6,18 +6,24 @@
     <title>Booking Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    @include('components.swallalert')
     <div class="bg-white shadow-lg p-8 rounded-lg w-full max-w-lg">
-        <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Book an Appointment</h1>
+        <h1 class="text-3xl font-bold text-center mb-4 text-gray-800">
+            Book an Appointment<br>
+            <span class="italic text-blue-600">Pet {{ $service->type }}</span>
+        </h1>
 
-        <form action="" method="POST">
+        <form action="{{ route('book.insert', $service->id) }}" method="POST">
             @csrf
             @method('post')
 
             <div class="mb-6">
-                <label for="pet" class="block text-lg font-medium text-gray-700">Select Pet:</label>
-                <select id="pet" name="pet_id" required class="mt-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-base">
+                <label for="pet_id" class="block text-lg font-medium text-gray-700">Select Pet:</label>
+                <select id="pet_id" name="pet_id" required class="mt-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-base">
                     <option value="" disabled selected>Select a pet</option>
                     @foreach($pets as $pet)
                         <option value="{{ $pet->id }}">{{ $pet->name }}</option>
@@ -26,14 +32,14 @@
             </div>
 
             <div class="mb-6">
-                <label for="address" class="block text-lg font-medium text-gray-700">Address:</label>
-                <input type="text" id="address" name="address" required placeholder="Enter your address" class="mt-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-base">
+                <label for="location" class="block text-lg font-medium text-gray-700">Address:</label>
+                <input type="text" id="location" name="location" required placeholder="Enter your address" class="mt-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-base">
             </div>
 
             <!-- Additional Pet Feeding Checkbox with smaller font -->
             <div class="mb-6 text-xs">
-                <label for="additional_feeding" class="flex items-center text-lg font-medium text-gray-700">
-                    <input type="checkbox" id="additional_feeding" name="additional_feeding" class="mr-2" />
+                <label for="additional" class="flex items-center text-lg font-medium text-gray-700">
+                    <input type="checkbox" id="additional" name="additional" class="mr-2" />
                     Add Additional Pet Feeding
                 </label>
             </div>
@@ -70,7 +76,15 @@
                 <div class="mt-2 p-4 bg-gray-100 rounded-md" id="selected-schedules-container"></div>
             </div>
 
-            <div class="mt-8">
+            <input type="hidden" id="staff_schedule_ids" name="staff_schedule_ids[]" value="">
+
+            <div class="mt-8 flex space-x-4">
+                <!-- Tombol Cancel -->
+                <a href="{{ route('service') }}" class="w-full bg-gray-300 text-gray-800 font-bold py-3 px-4 rounded-md hover:bg-gray-400 transition ease-in-out duration-200 text-center">
+                    Cancel
+                </a>
+                
+                <!-- Tombol Submit Booking -->
                 <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-md hover:bg-indigo-700 transition ease-in-out duration-200">
                     Submit Booking
                 </button>
@@ -79,33 +93,34 @@
     </div>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             var selectedSchedules = {};
 
-            $('#schedule').change(function() {
+            // Handle schedule date change
+            $('#schedule').change(function () {
                 var scheduleDate = $(this).val();
                 var serviceId = {{ $service->id }};
-                
+
                 if (scheduleDate) {
                     $.ajax({
                         url: "{{ route('staff.available') }}",
                         method: 'GET',
                         data: { schedule_date: scheduleDate, service_id: serviceId },
-                        success: function(response) {
+                        success: function (response) {
                             var tbody = $('#staff-table-body');
                             tbody.empty();
-                            
+
                             if (response.length > 0) {
                                 $('#available-staff-container').removeClass('hidden');
                                 $('#no-available-schedule').addClass('hidden');
 
-                                response.forEach(function(staff) {
+                                response.forEach(function (staff) {
                                     var timeButtons = '';
-                                    staff.schedules.forEach(function(schedule) {
+                                    staff.schedules.forEach(function (schedule) {
                                         timeButtons += `<button type="button" class="select-schedule text-indigo-600 hover:text-indigo-900 mr-2 mb-1 px-2 py-1 border border-indigo-600 rounded" 
                                                             data-staff-name="${staff.name}" 
                                                             data-schedule-time="${schedule.start_time} - ${schedule.end_time}" 
-                                                            data-staff-schedule-id="${schedule.id}">
+                                                            data-schedule-id="${schedule.staff_schedule_id}"> 
                                                             ${schedule.start_time} - ${schedule.end_time}
                                                         </button>`;
                                     });
@@ -122,7 +137,7 @@
                                 $('#no-available-schedule').removeClass('hidden');
                             }
                         },
-                        error: function() {
+                        error: function () {
                             $('#no-available-schedule').removeClass('hidden');
                         }
                     });
@@ -132,29 +147,30 @@
             });
 
             // Handle selecting a schedule time
-            $(document).on('click', '.select-schedule', function() {
+            $(document).on('click', '.select-schedule', function () {
                 var staffName = $(this).data('staff-name');
                 var scheduleTime = $(this).data('schedule-time');
-                var staffScheduleId = $(this).data('staff-schedule-id'); // Get the staff_schedule_id
+                var staffScheduleId = $(this).data('schedule-id');
 
-                // Check if this schedule time is already selected by any staff
-                var isTimeSelected = Object.values(selectedSchedules).some(times => times.includes(scheduleTime));
+                // Check if this schedule time is already selected
+                var isTimeSelected = Object.values(selectedSchedules).some(times => times.some(item => item.scheduleTime === scheduleTime));
                 if (isTimeSelected) {
                     alert('This time slot has already been selected.');
                     return;
                 }
 
-                // Add the schedule time to the selected schedules for this staff
+                // Add the schedule time and schedule_id to the selected schedules
                 if (!selectedSchedules[staffName]) {
                     selectedSchedules[staffName] = [];
                 }
-                selectedSchedules[staffName].push(scheduleTime);
+                selectedSchedules[staffName].push({ scheduleTime: scheduleTime, staffScheduleId: staffScheduleId });
 
-                var selectedScheduleId = 'selected-' + Math.random().toString(36).substring(2, 15); // unique ID for each selected schedule
-                var selectedScheduleHtml = `<div class="mb-2 p-2 border border-gray-300 rounded" id="${selectedScheduleId}">
+                var selectedScheduleHtml = `<div class="mb-2 p-2 border border-gray-300 rounded" id="selected-schedule-${staffScheduleId}">
                     <p><strong>Staff:</strong> ${staffName}</p>
                     <p><strong>Time:</strong> ${scheduleTime}</p>
-                    <button type="button" class="remove-schedule text-red-500 hover:text-red-700 mt-2" data-staff-name="${staffName}" data-schedule-time="${scheduleTime}" data-schedule-id="${selectedScheduleId}" data-staff-schedule-id="${staffScheduleId}">
+                    <button type="button" class="remove-schedule text-red-500 hover:text-red-700 mt-2" 
+                            data-staff-name="${staffName}" 
+                            data-schedule-id="${staffScheduleId}">
                         Remove
                     </button>
                 </div>`;
@@ -164,26 +180,51 @@
             });
 
             // Handle removing a selected schedule
-            $(document).on('click', '.remove-schedule', function() {
-                var scheduleId = $(this).data('schedule-id');
+            $(document).on('click', '.remove-schedule', function () {
+                var staffScheduleId = $(this).data('schedule-id');
                 var staffName = $(this).data('staff-name');
-                var scheduleTime = $(this).data('schedule-time');
-                var staffScheduleId = $(this).data('staff-schedule-id');
 
-                // Remove the schedule time from the selected schedules for this staff
+                // Remove the schedule time and schedule_id from the selected schedules
                 if (selectedSchedules[staffName]) {
-                    selectedSchedules[staffName] = selectedSchedules[staffName].filter(time => time !== scheduleTime);
+                    selectedSchedules[staffName] = selectedSchedules[staffName].filter(schedule => schedule.staffScheduleId !== staffScheduleId);
                     if (selectedSchedules[staffName].length === 0) {
                         delete selectedSchedules[staffName];
                     }
                 }
 
-                $('#' + scheduleId).remove();
+                $(`#selected-schedule-${staffScheduleId}`).remove();
 
                 // Hide selected schedules container if empty
                 if ($('#selected-schedules-container').children().length === 0) {
                     $('#selected-schedules').addClass('hidden');
                 }
+            });
+
+            $(document).on('submit', 'form', function (e) {
+                // Menyiapkan array kosong untuk staff schedule IDs
+                var staffScheduleIds = [];
+
+                // Loop melalui selectedSchedules dan menambahkan ke array
+                for (var staffName in selectedSchedules) {
+                    selectedSchedules[staffName].forEach(function (schedule) {
+                        staffScheduleIds.push(schedule.staffScheduleId); // Menambahkan staffScheduleId ke array
+                    });
+                }
+
+                // Hapus input hidden sebelumnya, jika ada
+                $('#staff_schedule_ids').remove();
+
+                // Loop untuk menambahkan setiap ID sebagai input hidden baru
+                staffScheduleIds.forEach(function (staffScheduleId) {
+                    $('<input>').attr({
+                        type: 'hidden',
+                        name: 'staff_schedule_ids[]',
+                        value: staffScheduleId
+                    }).appendTo('form');
+                });
+
+                // Debugging untuk melihat nilai yang dikirim
+                console.log('Staff Schedule IDs:', staffScheduleIds);
             });
         });
     </script>

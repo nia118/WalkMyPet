@@ -12,6 +12,17 @@ class Booking extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'customer_id',
+        'service_id',
+        'pet_id',
+        'location',
+        'amount',
+        'total_price',
+        'is_accepted',
+        'is_additional',
+    ];
+
     public function customer(): BelongsTo{
         return $this->belongsTo(Customer::class);
     }
@@ -24,7 +35,7 @@ class Booking extends Model
         return $this->belongsTo(Service::class);
     }
 
-    public function staff_schedules(): HasMany{
+    public function staffSchedules(): HasMany{
         return $this->hasMany(StaffSchedule::class);
     }
 }

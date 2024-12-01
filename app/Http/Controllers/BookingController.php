@@ -7,16 +7,18 @@ use App\Models\Pet;
 use App\Models\Schedule;
 use App\Models\Service;
 use App\Models\Staff;
+use App\Models\StaffSchedule;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Session;
 
 class BookingController extends Controller
 {
     public function showBookingForm(Service $service)
     {
-        $id_customer = 2; 
         
-        $pets = Pet::where('customer_id', $id_customer)->get();
+        $pets = Pet::where('customer_id', auth()->user()->id)->get();
         
         // Mendapatkan tanggal unik dari schedules yang memiliki staf aktif yang menawarkan service yang dipilih
         $schedules = Schedule::whereHas('staffs', function ($query) use ($service) {
@@ -25,12 +27,13 @@ class BookingController extends Controller
                       $query->where('service_id', $service->id);
                   });
         })
-        ->selectRaw('DISTINCT DATE(date) as date') // Ambil hanya tanggal unik
-        ->orderBy('date') // Urutkan tanggal
+        ->whereDate('date', '>=', Carbon::today())
+        ->whereTime('start_time', '>=', Carbon::now()->format('H:i:s'))
+        ->selectRaw('DISTINCT DATE(date) as date')
+        ->orderBy('date')
         ->get();
     
         return view('book', [
-            'customer_id' => $id_customer,
             'pets' => $pets,
             'service' => $service,
             'schedules' => $schedules
@@ -50,7 +53,7 @@ class BookingController extends Controller
                 })
                 ->with(['schedules' => function($query) use ($request) {
                     $query->whereDate('date', $request->schedule_date)
-                        ->select('staff_id', 'start_time', 'end_time', 'date');
+                    ->withPivot('id as staff_schedule_id');
                 }])
                 ->get(['id', 'name', 'experience']); // Ambil field name dan experience dari Staff
 
@@ -61,43 +64,65 @@ class BookingController extends Controller
         }
     }
 
-    public function storeBooking(Request $request)
+    public function insert(Request $request, Service $service)
     {
         try {
-            // Validate the incoming request
             $request->validate([
-                'customer_id' => 'required|exists:customers,id',
-                'service_id' => 'required|exists:services,id',
+                'pet_id' => 'required|exists:pets,id',
                 'location' => 'required|string|max:255',
-                'amount' => 'required|numeric',
-                'total_price' => 'required|numeric',
-                'staff_schedule_id' => 'required|exists:staff_schedules,id', // Selected staff schedule
+                'staff_schedule_ids' => 'required|array',
+                'staff_schedule_ids.*' => 'exists:staff_schedules,id',
             ]);
 
-            // Create the booking
+            // Retrieve the staff schedule IDs
+            $staffScheduleIds = $request->input('staff_schedule_ids', []);
+            $totalSchedules = count($staffScheduleIds);  // Count of selected schedules
+            $totalPrice = $service->price * $totalSchedules;  // Calculate total price based on schedules
+
+            // Check if the additional service is selected (only add once)
+            $isAdditional = $request->has('additional') && $request->additional;
+
+            if ($isAdditional) {
+                // Add the price of the additional service (e.g., pet feeding) only once
+                $additionalService = Service::find(4); // Assuming ID 4 is the pet feeding service
+                if ($additionalService) {
+                    $totalPrice += $additionalService->price;
+                }
+            }
+
+            // Create the booking record
             $booking = Booking::create([
-                'customer_id' => $request->customer_id,
-                'service_id' => $request->service_id,
+                'customer_id' => auth()->user()->id,
+                'service_id' => $service->id,
+                'pet_id' => $request->pet_id,
                 'location' => $request->location,
-                'amount' => $request->amount,
-                'total_price' => $request->total_price,
-                'is_accepted' => false, // Booking is not accepted by default
+                'amount' => $totalSchedules,
+                'total_price' => $totalPrice,
+                'is_accepted' => false,
+                'is_additional' => $isAdditional,
             ]);
 
-            // Find the selected staff schedule and link the booking_id
-            $staffSchedule = Schedule::findOrFail($request->staff_schedule_id);
-            $staffSchedule->booking_id = $booking->id; // Set the booking_id in staff schedule
-            $staffSchedule->save();
+            // Link the selected staff schedules to the booking
+            foreach ($staffScheduleIds as $scheduleId) {
+                $staffSchedule = StaffSchedule::findOrFail($scheduleId);
+                $staffSchedule->booking_id = $booking->id;
+                $staffSchedule->save();
+            }
 
-            return response()->json([
-                'message' => 'Booking created successfully!',
-                'booking_id' => $booking->id,
-                'staff_schedule_id' => $staffSchedule->id
-            ], 201);
+            Session::flash('title', 'Booking Successful!');
+            Session::flash('message', 'Your booking has been successfully saved.');
+            Session::flash('icon', 'success');
 
-        } catch (\Exception $e) {
-            Log::error('Error creating booking: ' . $e->getMessage());
-            return response()->json(['error' => 'Error creating booking'], 500);
+            return redirect()->route('service');
+
+        } 
+        catch (\Exception $e) {
+            // Handle error during booking creation
+            Session::flash('title', 'Booking Failed!');
+            Session::flash('message', 'An error occurred. Please try again.');
+            Session::flash('icon', 'error');
+
+            return redirect()->back();
         }
     }
 

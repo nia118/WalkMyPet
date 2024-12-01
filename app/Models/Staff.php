@@ -19,6 +19,7 @@ class Staff extends Model
     public function schedules(): BelongsToMany
     {
         return $this->belongsToMany(Schedule::class, 'staff_schedules', 'staff_id', 'schedule_id')
+                    ->withPivot('id')
                     ->orderBy('schedules.date');
     }
 

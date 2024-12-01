@@ -17,6 +17,7 @@ class BookingSeeder extends Seeder
             [
                 'customer_id' => 1,
                 'service_id' => 1,
+                'pet_id' => 1,
                 'location' => 'Jl. Mayjen Sungkono No. 123, Surabaya',
                 'amount' => 1,
                 'total_price' => 50000,
@@ -27,6 +28,7 @@ class BookingSeeder extends Seeder
             [
                 'customer_id' => 2,
                 'service_id' => 2,
+                'pet_id' => 2,
                 'location' => 'Jl. Diponegoro No. 456, Surabaya',
                 'amount' => 2,
                 'total_price' => 100000,

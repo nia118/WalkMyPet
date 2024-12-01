@@ -23,6 +23,9 @@
 
     <link rel="stylesheet" href="{{ asset('asset/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
 
@@ -48,6 +51,8 @@
 				</div>
 			</div>
 		</div> -->
+
+    @include('components.swallalert')
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
@@ -135,7 +140,7 @@
           <div class="media-body p-4">
             <h3 class="heading">Pet Walking</h3>
             <p>Provides pets with essential exercise and socialization, which is crucial for their physical and mental well-being.</p>
-            <a href="/home/book/2" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+            <a href="/book/2" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
           </div>
         </div>      
       </div>
@@ -151,7 +156,7 @@
           <div class="media-body p-4">
             <h3 class="heading">Pet Training</h3>
             <p>Helps improve pets behavior and obedience, making them easier to manage.</p>
-            <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+            <a href="/book/3" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
           </div>
         </div>    
       </div>
@@ -164,7 +169,7 @@
           <div class="media-body p-4">
             <h3 class="heading">Pet Grooming</h3>
             <p>Keeps pets clean and healthy, enhancing their appearance and comfort while also helping to identify potential health issues early.</p>
-            <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+            <a href="/book/1" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
           </div>
         </div>      
       </div>

@@ -7,7 +7,7 @@ use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 });
 
 Route::get('/home', function () {
@@ -22,11 +22,6 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
-
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/home', [MessageController::class, 'showMessage'])->name('home');
 
@@ -34,16 +29,20 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/home/book/{service:id}', [BookingController::class, 'showBookingForm'])->name('book.showBookingForm');
-
-Route::get('/staff/available', [BookingController::class, 'availableStaff'])->name('staff.available');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    // Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+    Route::get('/book/{service:id}', [BookingController::class, 'showBookingForm'])->name('book.showBookingForm');
+    Route::post('/book/{service:id}/insert', [BookingController::class, 'insert'])->name('book.insert');
+    Route::get('/staff/available', [BookingController::class, 'availableStaff'])->name('staff.available');
+
+    Route::get('/contact', function () {
+        return view('contact');
+    })->name('contact');
+    
+    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 });
 
 require __DIR__.'/auth.php';
