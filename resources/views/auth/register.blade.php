@@ -20,16 +20,23 @@
             border: none;
             border-radius: 1rem;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 1.5rem; /* Kurangi padding */
+            max-width: 350px; /* Atur ukuran maksimum */
         }
 
         .form-control {
             border-radius: 0.5rem;
             border: 1px solid #ccc;
+            height: calc(1.5em + 0.75rem + 2px); /* Tinggi lebih kecil */
+            padding: 0.5rem; /* Padding lebih kecil */
         }
 
-        .form-control:focus {
-            border-color: #6c757d;
-            box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.2);
+        .mb-3 {
+            margin-bottom: 0.8rem; /* Kurangi jarak antar elemen */
+        }
+
+        .form-label {
+            margin-bottom: 0.3rem; /* Kurangi jarak label */
         }
 
         .btn {
@@ -37,6 +44,7 @@
             color: white;
             border: none;
             border-radius: 0.5rem;
+            padding: 0.5rem 1rem; /* Kurangi padding tombol */
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
@@ -44,6 +52,7 @@
             background-color: #5a6268;
             color: #f8f9fa;
         }
+
 
         .text-primary {
             color: #6c757d !important;
@@ -106,6 +115,32 @@
                     <small class="text-danger mt-1 d-block">{{ $message }}</small>
                     @enderror
                 </div>
+
+                <!-- Address -->
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                        <textarea id="address" name="address" class="form-control" placeholder="Enter your address" required>{{ old('address') }}</textarea>
+                    </div>
+                    @error('address')
+                    <small class="text-danger mt-1 d-block">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <!-- Phone Number -->
+                <div class="mb-3">
+                    <label for="phone_number" class="form-label">Phone Number</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                        <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="Enter your phone number" value="{{ old('phone_number') }}" required>
+                    </div>
+                    @error('phone_number')
+                    <small class="text-danger mt-1 d-block">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <input type="hidden" name="is_active" value="1">
 
                 <div class="d-grid mb-3">
                     <button type="submit" class="btn btn-lg">Register</button>

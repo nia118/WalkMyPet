@@ -4,6 +4,12 @@
     <title>WalkMyPet</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SweetAlert2 Script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Include Custom SwallAlert Component -->
+    @include('components.swallalert') 
     
     <link rel="stylesheet" href="{{ asset('asset/css/animate.css') }}">
     
@@ -150,11 +156,11 @@
     <!-- END nav -->
 
     <!-- Pesan Sukses -->
-    @if (session('success'))
+    <!-- @if (session('success'))
     <div class="alert alert-success text-center">
         {{ session('success') }}
     </div>
-    @endif
+    @endif -->
 
     <section class="hero-wrap hero-wrap-2" style="background-image: url('{{ asset('asset/images/bg_2.jpg') }}');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>

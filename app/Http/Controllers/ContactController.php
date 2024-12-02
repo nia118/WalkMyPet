@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Session; // Make sure to import the Session facade
 
 class ContactController extends Controller
 {
@@ -33,6 +34,11 @@ class ContactController extends Controller
             'type' => $validated['service'],
         ]);
     
+        // Add session flashes for success message
+        Session::flash('title', 'Successful!');
+        Session::flash('message', 'Your message has been sent successfully.');
+        Session::flash('icon', 'success'); 
+
         // Redirect with a success message
         return redirect()->route('contact')->with('success', 'Your message has been sent!');
     }    

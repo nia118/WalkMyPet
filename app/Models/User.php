@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'phone_number',
+        'is_active',
+        'email_verified_at',
+        'remember_token',
     ];
 
     /**
