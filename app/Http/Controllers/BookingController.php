@@ -28,7 +28,6 @@ class BookingController extends Controller
                   });
         })
         ->whereDate('date', '>=', Carbon::today())
-        ->whereTime('start_time', '>=', Carbon::now()->format('H:i:s'))
         ->selectRaw('DISTINCT DATE(date) as date')
         ->orderBy('date')
         ->get();
@@ -53,6 +52,7 @@ class BookingController extends Controller
                 })
                 ->with(['schedules' => function($query) use ($request) {
                     $query->whereDate('date', $request->schedule_date)
+                    ->whereTime('start_time', '>=', Carbon::now()->format('H:i:s'))
                     ->withPivot('id as staff_schedule_id');
                 }])
                 ->get(['id', 'name', 'experience']); // Ambil field name dan experience dari Staff
