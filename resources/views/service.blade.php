@@ -99,6 +99,14 @@
                   </li>
                   @endauth
 
+
+                  @guest
+                  <!-- Show Login link if not logged in -->
+                  <li class="nav-item {{ Route::is('login') ? 'active' : '' }}">
+                      <a href="{{ route('login') }}" class="nav-link">Login</a>
+                  </li>
+                  @endguest
+
               </ul>
           </div>
       </div>
