@@ -52,6 +52,7 @@ class BookingController extends Controller
                 })
                 ->with(['schedules' => function($query) use ($request) {
                     $query->whereDate('date', $request->schedule_date)
+                    ->whereNull('booking_id')
                     ->withPivot('id as staff_schedule_id');
                 }])
                 ->get(['id', 'name', 'experience']); // Ambil field name dan experience dari Staff
