@@ -84,7 +84,7 @@ class BookingController extends Controller
 
             if ($isAdditional) {
                 // Add the price of the additional service (e.g., pet feeding) only once
-                $additionalService = Service::find(4); // Assuming ID 4 is the pet feeding service
+                $additionalService = Service::find(5); // Assuming ID 4 is the pet feeding service
                 if ($additionalService) {
                     $totalPrice += $additionalService->price;
                 }
@@ -141,5 +141,17 @@ class BookingController extends Controller
             Log::error('Error accepting booking: ' . $e->getMessage());
             return response()->json(['error' => 'Error accepting booking'], 500);
         }
+    }
+
+    public function cancel($bookingId)
+    {
+        $booking = Booking::findOrFail($bookingId);
+
+        if ($booking->is_accepted == 0) {
+            $booking->delete();
+            return redirect()->route('booklist')->with('success', 'Booking canceled successfully.');
+        }
+
+        return redirect()->route('booklist')->with('error', 'Unable to cancel this booking.');
     }
 }

@@ -38,4 +38,9 @@ class Booking extends Model
     public function staffSchedules(): HasMany{
         return $this->hasMany(StaffSchedule::class);
     }
+
+    public function pet()
+    {
+        return $this->belongsTo(Pet::class);
+    }
 }

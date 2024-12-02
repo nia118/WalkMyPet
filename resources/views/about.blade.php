@@ -47,6 +47,10 @@
 
                     <!-- Dropdown -->
                     @auth
+                    <li class="nav-item {{ Route::is('booklist') ? 'active' : '' }}">
+                        <a href="{{ route('booklist') }}" class="nav-link">Booklist</a>
+                    </li>
+
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->name }}

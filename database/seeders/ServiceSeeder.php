@@ -15,6 +15,14 @@ class ServiceSeeder extends Seeder
     {
         DB::table('services')->insert([
             [
+                'type' => 'Sitting',
+                'duration' => '01:00:00', 
+                'price' => 50000,
+                'is_additional' => false,  
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'type' => 'Grooming',
                 'duration' => '01:00:00',
                 'price' => 50000,

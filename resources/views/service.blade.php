@@ -79,6 +79,10 @@
 
                   <!-- Dropdown -->
                   @auth
+                  <li class="nav-item {{ Route::is('booklist') ? 'active' : '' }}">
+                    <a href="{{ route('booklist') }}" class="nav-link">Booklist</a>
+                  </li>
+
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       {{ Auth::user()->name }}
@@ -127,7 +131,7 @@
           <div class="media-body p-4">
             <h3 class="heading">Pet Sitting</h3>
             <p>Provides companionship and care for pets in their home environment, reducing stress, maintaining routines.</p>
-            <a href="#" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+            <a href="/book/1" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
           </div>
         </div>    
       </div>
@@ -140,7 +144,7 @@
           <div class="media-body p-4">
             <h3 class="heading">Pet Walking</h3>
             <p>Provides pets with essential exercise and socialization, which is crucial for their physical and mental well-being.</p>
-            <a href="/book/2" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+            <a href="/book/3" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
           </div>
         </div>      
       </div>
@@ -156,7 +160,7 @@
           <div class="media-body p-4">
             <h3 class="heading">Pet Training</h3>
             <p>Helps improve pets behavior and obedience, making them easier to manage.</p>
-            <a href="/book/3" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+            <a href="/book/4" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
           </div>
         </div>    
       </div>
@@ -169,7 +173,7 @@
           <div class="media-body p-4">
             <h3 class="heading">Pet Grooming</h3>
             <p>Keeps pets clean and healthy, enhancing their appearance and comfort while also helping to identify potential health issues early.</p>
-            <a href="/book/1" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+            <a href="/book/2" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
           </div>
         </div>      
       </div>

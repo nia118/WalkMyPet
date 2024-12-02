@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\BookListController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
@@ -43,6 +44,10 @@ Route::middleware('auth')->group(function () {
     })->name('contact');
     
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+    Route::get('/booklist', [BookListController::class, 'showBookList'])->name('booklist');
+
+    Route::delete('/bookings/{booking}', [BookingController::class, 'cancel'])->name('booking.cancel');
 });
 
 require __DIR__.'/auth.php';
