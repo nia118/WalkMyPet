@@ -16,9 +16,12 @@
     <link rel="stylesheet" href="{{ asset('asset/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
 
+  @include('components.swallalert')
+  
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">

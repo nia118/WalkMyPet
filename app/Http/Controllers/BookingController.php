@@ -145,13 +145,35 @@ class BookingController extends Controller
 
     public function cancel($bookingId)
     {
-        $booking = Booking::findOrFail($bookingId);
-
-        if ($booking->is_accepted == 0) {
-            $booking->delete();
-            return redirect()->route('booklist')->with('success', 'Booking canceled successfully.');
+        try {
+            $booking = Booking::findOrFail($bookingId);
+    
+            if ($booking->is_accepted == 0) {
+                $booking->delete();
+    
+                // Set session flash messages for successful cancellation
+                Session::flash('title', 'Booking Canceled!');
+                Session::flash('message', 'Your booking has been successfully canceled.');
+                Session::flash('icon', 'success');
+    
+                return redirect()->route('booklist');
+            }
+    
+            // Set session flash messages for unsuccessful cancellation
+            Session::flash('title', 'Cancellation Failed!');
+            Session::flash('message', 'Unable to cancel this booking because it has been accepted.');
+            Session::flash('icon', 'error');
+    
+            return redirect()->route('booklist');
+        } catch (\Exception $e) {
+            Log::error('Error canceling booking: ' . $e->getMessage());
+    
+            // Set session flash message for an error during cancellation
+            Session::flash('title', 'Error!');
+            Session::flash('message', 'An error occurred while trying to cancel the booking. Please try again.');
+            Session::flash('icon', 'error');
+    
+            return redirect()->route('booklist');
         }
-
-        return redirect()->route('booklist')->with('error', 'Unable to cancel this booking.');
-    }
+    }    
 }
