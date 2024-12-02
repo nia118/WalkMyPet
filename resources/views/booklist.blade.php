@@ -210,10 +210,32 @@
     </div>
 </footer>
 
-  <script src="{{ asset('asset/js/jquery.min.js') }}"></script>
-  <script src="{{ asset('asset/js/popper.js') }}"></script>
-  <script src="{{ asset('asset/js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('asset/js/jquery.sticky.js') }}"></script>
-  <script src="{{ asset('asset/js/main.js') }}"></script>
+<!-- jQuery -->
+<script src="{{ asset('asset/js/jquery.min.js') }}"></script>
+<script src="{{ asset('asset/js/jquery-migrate-3.0.1.min.js') }}"></script>
+
+<!-- Bootstrap -->
+<script src="{{ asset('asset/js/popper.min.js') }}"></script>
+<script src="{{ asset('asset/js/bootstrap.min.js') }}"></script>
+
+<!-- jQuery Plugins -->
+<script src="{{ asset('asset/js/jquery.easing.1.3.js') }}"></script>
+<script src="{{ asset('asset/js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('asset/js/jquery.stellar.min.js') }}"></script>
+<script src="{{ asset('asset/js/jquery.animateNumber.min.js') }}"></script>
+<script src="{{ asset('asset/js/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('asset/js/jquery.timepicker.min.js') }}"></script>
+<script src="{{ asset('asset/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('asset/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('asset/js/jquery.sticky.js') }}"></script>
+<script src="{{ asset('asset/js/scrollax.min.js') }}"></script>
+
+<!-- Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="{{ asset('asset/js/google-map.js') }}"></script>
+
+<!-- Main JS -->
+<script src="{{ asset('asset/js/main.js') }}"></script>
+
   </body>
 </html>
