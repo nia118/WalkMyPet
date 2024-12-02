@@ -45,6 +45,7 @@ class BookingController extends Controller
             // Mencari staf yang tersedia pada tanggal dan layanan tertentu
             $availableStaff = Staff::whereHas('schedules', function($query) use ($request) {
                     $query->whereDate('date', $request->schedule_date)
+                        ->whereTime('start_time', '>', Carbon::now()->format('H:i:s')) // Filter waktu mulai
                         ->whereNull('booking_id'); // Staf dengan booking_id null masih tersedia
                 })
                 ->whereHas('services', function($query) use ($request) {
@@ -52,17 +53,16 @@ class BookingController extends Controller
                 })
                 ->with(['schedules' => function($query) use ($request) {
                     $query->whereDate('date', $request->schedule_date)
-                    ->whereTime('start_time', '>=', Carbon::now()->format('H:i:s'))
-                    ->withPivot('id as staff_schedule_id');
+                        ->whereTime('start_time', '>', Carbon::now()->format('H:i:s')); // Filter waktu mulai
                 }])
                 ->get(['id', 'name', 'experience']); // Ambil field name dan experience dari Staff
-
+    
             return response()->json($availableStaff);
         } catch (\Exception $e) {
             Log::error('Error fetching staff: ' . $e->getMessage());
             return response()->json(['error' => 'Server Error'], 500);
         }
-    }
+    }    
 
     public function insert(Request $request, Service $service)
     {
