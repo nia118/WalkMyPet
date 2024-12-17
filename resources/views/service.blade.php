@@ -131,7 +131,7 @@
 
     <!-- Row 1 -->
     <div class="row mb-5 pb-5">
-      <div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
+      <div class="col-12 col-md-6 d-flex align-self-stretch px-4 mb-5 ftco-animate">
         <div class="d-block services text-center">
           <div class="icon d-flex align-items-center justify-content-center">
             <span class="flaticon-dog-eating"></span>
@@ -139,12 +139,15 @@
           <div class="media-body p-4">
             <h3 class="heading">Pet Sitting</h3>
             <p>Provides companionship and care for pets in their home environment, reducing stress, maintaining routines.</p>
-            <a href="/book/1" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+            <a href="/book/1" class="btn-custom d-flex align-items-center justify-content-center">
+              <span class="fa fa-chevron-right"></span>
+              <i class="sr-only">Read more</i>
+            </a>
           </div>
-        </div>    
+        </div>
       </div>
 
-      <div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
+      <div class="col-12 col-md-6 d-flex align-self-stretch px-4 mb-5 ftco-animate">
         <div class="d-block services text-center">
           <div class="icon d-flex align-items-center justify-content-center">
             <span class="flaticon-blind"></span>
@@ -152,15 +155,18 @@
           <div class="media-body p-4">
             <h3 class="heading">Pet Walking</h3>
             <p>Provides pets with essential exercise and socialization, which is crucial for their physical and mental well-being.</p>
-            <a href="/book/3" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+            <a href="/book/3" class="btn-custom d-flex align-items-center justify-content-center">
+              <span class="fa fa-chevron-right"></span>
+              <i class="sr-only">Read more</i>
+            </a>
           </div>
-        </div>      
+        </div>
       </div>
     </div>
 
     <!-- Row 2 -->
     <div class="row mt-5 pt-4">
-      <div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
+      <div class="col-12 col-md-6 d-flex align-self-stretch px-4 mb-5 ftco-animate">
         <div class="d-block services text-center">
           <div class="icon d-flex align-items-center justify-content-center">
             <span class="flaticon-dog-eating"></span>
@@ -168,12 +174,15 @@
           <div class="media-body p-4">
             <h3 class="heading">Pet Training</h3>
             <p>Helps improve pets behavior and obedience, making them easier to manage.</p>
-            <a href="/book/4" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+            <a href="/book/4" class="btn-custom d-flex align-items-center justify-content-center">
+              <span class="fa fa-chevron-right"></span>
+              <i class="sr-only">Read more</i>
+            </a>
           </div>
-        </div>    
+        </div>
       </div>
 
-      <div class="col-md-6 d-flex align-self-stretch px-4 ftco-animate">
+      <div class="col-12 col-md-6 d-flex align-self-stretch px-4 mb-5 ftco-animate">
         <div class="d-block services text-center">
           <div class="icon d-flex align-items-center justify-content-center">
             <span class="flaticon-grooming"></span>
@@ -181,13 +190,16 @@
           <div class="media-body p-4">
             <h3 class="heading">Pet Grooming</h3>
             <p>Keeps pets clean and healthy, enhancing their appearance and comfort while also helping to identify potential health issues early.</p>
-            <a href="/book/2" class="btn-custom d-flex align-items-center justify-content-center"><span class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
+            <a href="/book/2" class="btn-custom d-flex align-items-center justify-content-center">
+              <span class="fa fa-chevron-right"></span>
+              <i class="sr-only">Read more</i>
+            </a>
           </div>
-        </div>      
+        </div>
       </div>
     </div>
-  </div>
-</section>
+    </div>
+  </section>
 
 <section class="ftco-section bg-light">
   <div class="container px-5">
