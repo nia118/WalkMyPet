@@ -190,6 +190,68 @@
   </div>
 </section>
 
+<section class="ftco-section bg-light">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5 mb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h2>Affordable Packages</h2>
+          </div>
+        </div>
+    		<div class="row">
+    			<div class="col-md-4 ftco-animate">
+	          <div class="block-7">
+	          	<!-- <div class="img" style="background-image: url(images/pricing-1.jpg);"></div> -->
+	            <div class="text-center p-4">
+	            	<span class="excerpt d-block">Comfort Care</span>
+	            	<!-- <span class="price"><sup>Rp.</sup> <span class="number">90K</span> <sub>/mos</sub></span> -->
+                <span class="price"><sup>Rp.</sup> <span class="number">90K</span></span>
+	            
+		            <ul class="pricing-text mb-5">
+		              <li><span class="fa fa-check mr-2"></span>Sitting</li>
+		              <li><span class="fa fa-check mr-2"></span>Walking</li>
+		            </ul>
+
+	            	<a href="#" class="btn btn-primary d-block px-2 py-3">Book</a>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="col-md-4 ftco-animate">
+	          <div class="block-7">
+	          	<!-- <div class="img" style="background-image: url(images/pricing-2.jpg);"></div> -->
+	            <div class="text-center p-4">
+	            	<span class="excerpt d-block">Groom & Walk</span>
+		            <span class="price"><sup>Rp.</sup> <span class="number">90K</span></span>
+		            
+		            <ul class="pricing-text mb-5">
+		              <li><span class="fa fa-check mr-2"></span>Grooming</li>
+		              <li><span class="fa fa-check mr-2"></span>Walking</li>
+		            </ul>
+
+		            <a href="#" class="btn btn-primary d-block px-2 py-3">Book</a>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="col-md-4 ftco-animate">
+	          <div class="block-7">
+	          	<!-- <div class="img" style="background-image: url(images/pricing-3.jpg);"></div> -->
+	            <div class="text-center p-4">
+	            	<span class="excerpt d-block">Premium Care & Train</span>
+		            <span class="price"><sup>Rp</sup> <span class="number">140K</span></span>
+		            
+		            <ul class="pricing-text mb-5">
+		              <li><span class="fa fa-check mr-2"></span>Sitting</li>
+		              <li><span class="fa fa-check mr-2"></span>Training</li>
+		              <li><span class="fa fa-check mr-2"></span>Walking</li>
+		            </ul>
+
+		            <a href="#" class="btn btn-primary d-block px-2 py-3">Book</a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+    	</div>
+</section>
+
 
 <footer class="footer" style="padding-top: 40px; padding-bottom: 25px;">
     <div class="container">
