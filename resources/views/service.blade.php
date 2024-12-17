@@ -127,7 +127,7 @@
 
 
   <section class="ftco-section bg-light">
-  <div class="container">
+    <div class="container">
 
     <!-- Row 1 -->
     <div class="row mb-5 pb-5">
@@ -186,70 +186,65 @@
         </div>      
       </div>
     </div>
-    
   </div>
 </section>
 
 <section class="ftco-section bg-light">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5 mb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2>Affordable Packages</h2>
+  <div class="container px-5">
+      <div class="row justify-content-center">
+          <!-- Comfort Care -->
+          <div class="col-md-4 ftco-animate d-flex align-items-stretch">
+              <div class="block-7 d-flex flex-column w-100" style="min-height: 450px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                  <div class="text-center p-4 flex-grow-1">
+                      <span class="excerpt d-block">Comfort Care</span>
+                      <span class="price"><sup>Rp.</sup> <span class="number">90K</span></span>
+                      <ul class="pricing-text mb-5">
+                          <li><span class="fa fa-check mr-2"></span>Sitting</li>
+                          <li><span class="fa fa-check mr-2"></span>Walking</li>
+                      </ul>
+                  </div>
+                  <div class="mt-auto p-3 text-center">
+                      <a href="#" class="btn btn-primary d-block px-2 py-3">Book</a>
+                  </div>
+              </div>
           </div>
-        </div>
-    		<div class="row">
-    			<div class="col-md-4 ftco-animate">
-	          <div class="block-7">
-	          	<!-- <div class="img" style="background-image: url(images/pricing-1.jpg);"></div> -->
-	            <div class="text-center p-4">
-	            	<span class="excerpt d-block">Comfort Care</span>
-	            	<!-- <span class="price"><sup>Rp.</sup> <span class="number">90K</span> <sub>/mos</sub></span> -->
-                <span class="price"><sup>Rp.</sup> <span class="number">90K</span></span>
-	            
-		            <ul class="pricing-text mb-5">
-		              <li><span class="fa fa-check mr-2"></span>Sitting</li>
-		              <li><span class="fa fa-check mr-2"></span>Walking</li>
-		            </ul>
 
-	            	<a href="#" class="btn btn-primary d-block px-2 py-3">Book</a>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-4 ftco-animate">
-	          <div class="block-7">
-	          	<!-- <div class="img" style="background-image: url(images/pricing-2.jpg);"></div> -->
-	            <div class="text-center p-4">
-	            	<span class="excerpt d-block">Groom & Walk</span>
-		            <span class="price"><sup>Rp.</sup> <span class="number">90K</span></span>
-		            
-		            <ul class="pricing-text mb-5">
-		              <li><span class="fa fa-check mr-2"></span>Grooming</li>
-		              <li><span class="fa fa-check mr-2"></span>Walking</li>
-		            </ul>
+          <!-- Groom & Walk -->
+          <div class="col-md-4 ftco-animate d-flex align-items-stretch">
+              <div class="block-7 d-flex flex-column w-100" style="min-height: 450px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                  <div class="text-center p-4 flex-grow-1">
+                      <span class="excerpt d-block">Groom & Walk</span>
+                      <span class="price"><sup>Rp.</sup> <span class="number">90K</span></span>
+                      <ul class="pricing-text mb-5">
+                          <li><span class="fa fa-check mr-2"></span>Grooming</li>
+                          <li><span class="fa fa-check mr-2"></span>Walking</li>
+                      </ul>
+                  </div>
+                  <div class="mt-auto p-3 text-center">
+                      <a href="#" class="btn btn-primary d-block px-2 py-3">Book</a>
+                  </div>
+              </div>
+          </div>
 
-		            <a href="#" class="btn btn-primary d-block px-2 py-3">Book</a>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-4 ftco-animate">
-	          <div class="block-7">
-	          	<!-- <div class="img" style="background-image: url(images/pricing-3.jpg);"></div> -->
-	            <div class="text-center p-4">
-	            	<span class="excerpt d-block">Premium Care & Train</span>
-		            <span class="price"><sup>Rp</sup> <span class="number">140K</span></span>
-		            
-		            <ul class="pricing-text mb-5">
-		              <li><span class="fa fa-check mr-2"></span>Sitting</li>
-		              <li><span class="fa fa-check mr-2"></span>Training</li>
-		              <li><span class="fa fa-check mr-2"></span>Walking</li>
-		            </ul>
-
-		            <a href="#" class="btn btn-primary d-block px-2 py-3">Book</a>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-    	</div>
+          <!-- Premium Care & Train -->
+          <div class="col-md-4 ftco-animate d-flex align-items-stretch">
+              <div class="block-7 d-flex flex-column w-100" style="min-height: 450px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                  <div class="text-center p-4 flex-grow-1">
+                      <span class="excerpt d-block">Premium Care & Train</span>
+                      <span class="price"><sup>Rp.</sup> <span class="number">140K</span></span>
+                      <ul class="pricing-text mb-5">
+                          <li><span class="fa fa-check mr-2"></span>Sitting</li>
+                          <li><span class="fa fa-check mr-2"></span>Training</li>
+                          <li><span class="fa fa-check mr-2"></span>Walking</li>
+                      </ul>
+                  </div>
+                  <div class="mt-auto p-3 text-center">
+                      <a href="#" class="btn btn-primary d-block px-2 py-3">Book</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
 
 
