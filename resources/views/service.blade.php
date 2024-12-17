@@ -191,7 +191,13 @@
 
 <section class="ftco-section bg-light">
   <div class="container px-5">
-      <div class="row justify-content-center">
+    <div class="row justify-content-center pb-5 mb-3">
+        <div class="col-md-7 heading-section text-center ftco-animate">
+            <h2>Affordable Packages</h2>
+        </div>
+    </div>
+    
+      <div class="row justify-content-center">        
           <!-- Comfort Care -->
           <div class="col-md-4 ftco-animate d-flex align-items-stretch">
               <div class="block-7 d-flex flex-column w-100" style="min-height: 450px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
