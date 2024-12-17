@@ -83,18 +83,18 @@
                     </div>
                 </div>
 
-                <div class="form-check mb-3">
+                <!-- <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" id="remember">
                     <label class="form-check-label" for="remember">Remember Me</label>
-                </div>
+                </div> -->
 
                 <div class="d-grid">
                     <button type="submit" class="btn btn-lg">Login</button>
                 </div>
 
-                <div class="text-center mt-3">
+                <!-- <div class="text-center mt-3">
                     <a href="{{ route('password.request') }}" class="text-muted small">Forgot Password?</a>
-                </div>
+                </div> -->
                 <div class="text-center mt-3">
                     <p>Not a member? <a href="{{ route('register') }}" class="text-primary">Sign Up</a></p>
                 </div>
